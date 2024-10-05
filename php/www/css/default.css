@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Bungee+Tint&display=swap');
+:root {
+   --dark-background: #030f18;
+   --dark-primary:#001f3f;
+   --dark-secondary:#43b7ff;
+   --dark-tertiary:#1a1a1a;
+   --dark-color:#fafbfc;
+
+   --dark-headerBoxShadow: rgba(255,255,255,.75)
+}
+
+body {
+   padding: 0;
+   margin: 0;
+   background-color: var(--dark-background);
+   color: var(--dark-color);
+}
+
+/* General and spacing */
+header,
+header a {
+   color: var(--dark-color);
+}
+
+header,
+header > * {
+   display: flex;
+}
+
+header {
+   background-color: var(--dark-primary);
+   /* border-radius: 10px; */
+   padding: 1.25em;
+   text-align: center;
+   /* font-family: "Anton SC", sans-serif; */
+   font-family: "Roboto", sans-serif;
+   flex-direction: row;
+   justify-content: space-around;
+}
+header div {
+   align-self: center;
+   width:20%;
+}
+header div:first-child {
+   justify-content: start;
+}
+header nav {
+   width: 60%;
+}
+header div:last-child {
+   justify-content: end;
+}
+
+
+header nav ul li  {
+   list-style: none;
+}
+header nav ul li a {
+   text-decoration: none;
+}
+header nav,
+header nav ul {
+   display: flex;
+   flex-direction: row;
+
+}
+
+/* Logo config */
+header div:first-child {
+   text-align: left;
+   display: flex;
+   flex-direction: column;
+}
+header div:first-child span {
+   /* font-family: "Bungee Tint sans-serif"; */
+   font-family: "Roboto", sans-serif;
+   /* font-weight: 100; */
+   font-size: 1.25em;
+}
+
+
+/* Nav config */
+header nav ul {
+   font-family: "Anton SC", sans-serif;
+   /* font-family: "Bungee Tint sans-serif"; */
+   justify-content: space-around;
+   width: 100%;
+   margin-left: 2.5em;
+   padding-left: 2.5em;
+}
+
+header nav {
+   /* background-color: var(--dark-primary); */
+   justify-content: center;
+
+}
