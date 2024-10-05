@@ -16,8 +16,10 @@ spl_autoload_register(function ($class) {
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="refresh" content="<?=$sec?>;URL='<?=$page?>'">
     <link rel="stylesheet" href="css/default.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
    <title>Resume</title>
 </head>
+
 <header>
    <div>
       Richard Eldridge
@@ -30,7 +32,13 @@ spl_autoload_register(function ($class) {
       switcher
    </div>
 </header>
+
 <body>
-   <h1>test</h1>
+
 </body>
+
+<footer>
+   <?=Footer::DisplayLinks()?>
+   <?=Footer::DisplayAuthorSignature()?>
+</footer>
 </html>
