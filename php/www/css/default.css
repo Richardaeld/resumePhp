@@ -5,12 +5,13 @@
    --dark-primary:#001f3f;
    --dark-secondary:#43b7ff;
    --dark-tertiary:#1a1a1a;
-   --dark-color:#fafbfc; */
+   --dark-color-dark-background:#fafbfc; */
    --dark-background: rgb(3, 15, 24);
    /* --dark-primary: rgb(0, 31, 63);
    --dark-secondary: rgb(67, 183, 255);
    --dark-tertiary: rgb(26, 26, 26); */
-   --dark-color: rgb(250, 251, 252);
+   --dark-color-dark-background: rgb(250, 251, 252);
+   --dark-color-light-background: rgb(14, 45, 77);
 
    /* --dark-headerBoxShadow: rgba(255,255,255,.75) */
 
@@ -29,7 +30,7 @@ body {
    padding: 0;
    margin: 0;
    background-color: var(--dark-background);
-   color: var(--dark-color);
+   color: var(--dark-color-dark-background);
 }
 
 /* ===================== */
@@ -38,7 +39,7 @@ body {
 /* General and spacing */
 header,
 header a {
-   color: var(--dark-color);
+   color: var(--dark-color-dark-background);
 }
 
 header,
@@ -128,19 +129,19 @@ header nav {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
-   margin-top: 1em;
-margin: 3rem;;
+   /* margin-top: 1em; */
+   margin: 3rem;
 }
 
-.cards div {
-
-}
-
+/* ===================== */
+/* Animation and color */
+/* ===================== */
 .hover-card {
    position: relative;
    perspective:200rem;
    width: 20%;
    margin: 2rem;
+   color: var(--dark-color-light-background);
 }
 
 .hover-card > div {
@@ -157,7 +158,14 @@ margin: 3rem;;
       inset  0px  1px 3px 0px rgba(255, 255, 255, 0.4),
       inset -1px -0px 3px 0px rgba(255, 255, 255, 0.4),
       inset -0px -1px 3px 0px rgba(255, 255, 255, 0.4);
-   padding: 1rem;
+   background:
+      linear-gradient(to bottom, var(--dark-primary), var(--dark-primary)),
+      /* radial-gradient(circle, rgba(92, 75, 138, .8), rgba(92, 75, 138, .6)), */
+      radial-gradient(circle, rgba(255, 255, 255, .4), rgba(255, 255, 255, .2)),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2))
+      ;
+      background-blend-mode: overlay;
+      background-size: cover;
 }
 
 .hover-card > div:nth-child(1),
@@ -169,18 +177,12 @@ margin: 3rem;;
 /* Left page */
 .hover-card > div:nth-child(1) {
    transform: rotateY(360deg);
-   background:
-      linear-gradient(to bottom, var(--dark-primary), var(--dark-primary)),
-      /* radial-gradient(circle, rgba(92, 75, 138, .8), rgba(92, 75, 138, .6)), */
-      radial-gradient(circle, rgba(255, 255, 255, .4), rgba(255, 255, 255, .2)),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2))
-      ;
-   background-blend-mode: overlay;
-   background-size: cover;
+
    position: absolute;
 }
 .hover-card > div:nth-child(2) {
    transform: rotateY(180deg) translateX(-100%);
+   background-color: rgba(250, 251, 252, .75);
    position: relative;
 }
 
@@ -189,7 +191,8 @@ margin: 3rem;;
    z-index: 0;
    top: 0;
    position: absolute;
-   background-color: aquamarine;
+   background-color: rgba(250, 251, 252, .75);
+   color: var(--dark-color-light-background);
 }
 .hover-card > div:nth-child(3)::before {
    content: '';
@@ -206,19 +209,66 @@ margin: 3rem;;
 }
 .hover-card.open > div:nth-child(1) {
    transform: rotateY(180deg);
-   /* box-shadow:
-   inset  1px  1px 10px 0px rgba(255, 255, 255, 0.4),
-   inset -1px -1px 10px 0px rgba(255, 255, 255, 0.4); */
 }
 .hover-card.open > div:nth-child(2) {
    transform: rotateY(0deg) translateX(-100%);
-   /* box-shadow:
-   inset  1px  1px 10px 0px rgba(255, 255, 255, 0.4),
-   inset -1px -1px 10px 0px rgba(255, 255, 255, 0.4); */
 }
 .hover-card.open > div:nth-child(3)::before {
    transform: translateX(-100%);
 }
+
+
+/* ===================== */
+/* structure */
+/* ===================== */
+
+/* ============first card */
+.hover-card > div:nth-child(1) {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   width: 100%;
+   height: 100%;
+   color: var(--dark-color-light-background);
+   font-weight: bold;
+}
+/* top section */
+.hover-card > div:nth-child(1) > div:first-child {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   width: 100%;
+   height: 50%;
+}
+/* bottom section */
+.hover-card > div:nth-child(1) > div:last-child {
+   width: 100%;
+   height: 50%;
+   background:
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.5));
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+/* Arrow */
+.hover-card > div:nth-child(1) > div > div:first-child::after {
+   content: '';
+   position: absolute;
+   left: calc(50% - 10px);
+   top: 50%;
+   border-left: 10px solid transparent;
+   border-right:10px solid transparent;
+   border-top:  20px solid rgba(92, 75, 138, .75);
+}
+
+/* second card */
+.hover-card > div:nth-child(3) p {
+   padding: 1.2em;
+}
+
+/* header */
 
 .hover-card img {
    width: 100%;
@@ -235,7 +285,7 @@ margin: 3rem;;
    background-color: rgb(202, 22, 94);
    color: rgb(255, 254, 252);
    padding: 0 .2em;
-   margin-right: 3px;
+   /* margin-right: 3px; */
    font-size: 3.5rem;
 }
 /* ===================== */
@@ -249,7 +299,7 @@ footer {
    /* font-family: "Roboto"; */
    /* font-family: "Anton SC", sans-serif; */
    /* font-family: "Bungee Tint", "sans-serif"; */
-   color: var(--dark-color);
+   color: var(--dark-color-dark-background);
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -266,6 +316,6 @@ footer div p {
    /* font-family: "Anton SC"; */
 }
 footer div a i {
-   color:var(--dark-color);
+   color:var(--dark-color-dark-background);
    font-size: 2.5rem;
 }

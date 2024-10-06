@@ -35,34 +35,8 @@ spl_autoload_register(function ($class) {
 
 <body>
    <div class="cards">
+      <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
 
-      <?php for ($i=0; $i<1; $i++) { ?>
-         <div class="hover-card">
-            <!-- 1st -->
-            <div>OPEN ME@</div>
-
-            <!-- 2nd -->
-            <div>
-               <img src="images/smitten1.jpg" alt="">
-            </div>
-
-            <!-- 3rd -->
-            <div>
-               <div><span class="smitten">img</span></div>
-               <div>
-                  <h2>Fully Responsive</h2>
-                  <p>
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                     Eaque voluptatum quo unde neque distinctio ipsum nobis
-                     inventore earum repellendus, saepe aliquid animi vel
-                     facere a commodi reprehenderit! Ex, vitae voluptatum!
-                  </p>
-               </div>
-               <p>Get started</p>
-            </div>
-
-         </div>
-      <?php } ?>
 
    </div>
 
