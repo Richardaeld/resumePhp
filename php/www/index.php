@@ -25,10 +25,10 @@ spl_autoload_register(function ($class) {
    <div class="cards">
       <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
    </div>
-
 </body>
 
 <footer>
+   <?=Footer::STYLES['footer']?>
    <?=Footer::DisplayLinks()?>
    <?=Footer::DisplayAuthorSignature()?>
 </footer>

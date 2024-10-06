@@ -26,6 +26,47 @@ class Footer {
       ],
    ];
 
+
+   const STYLES = [
+      'footer' =>
+         <<<HTML
+<style>
+/* ===================== */
+/* Footer */
+/* ===================== */
+footer {
+   background-color: var(--dark-primary);
+   padding: 1.25em;
+   text-align: center;
+   font-family: "Roboto", sans-serif;
+   /* font-family: "Roboto"; */
+   /* font-family: "Anton SC", sans-serif; */
+   /* font-family: "Bungee Tint", "sans-serif"; */
+   color: var(--dark-color-dark-background);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+footer div:first-child {
+   /* width: 100%; */
+   padding-right: 35%;
+   padding-left: 35%;
+   display: flex;
+   justify-content:space-evenly;
+
+}
+footer div p {
+   /* font-family: "Anton SC"; */
+}
+footer div a i {
+   color:var(--dark-color-dark-background);
+   font-size: 2.5rem;
+}
+</style>
+HTML,
+   ];
+
+
    static function DisplayLinks () { ?>
 <div>
    <?php foreach (self::AUTHOR_LINKS as $link) { ?>
