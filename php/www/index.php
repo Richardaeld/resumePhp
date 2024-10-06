@@ -21,6 +21,7 @@ spl_autoload_register(function ($class) {
 </head>
 
 <?=Header::displayHeader()?>
+
 <body>
    <div class="cards">
       <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
@@ -28,6 +29,7 @@ spl_autoload_register(function ($class) {
 </body>
 
 <?=Footer::displayFooter()?>
+
 <script>
    let
       hoverTimeout,
@@ -50,7 +52,6 @@ spl_autoload_register(function ($class) {
       card.addEventListener('click', flip)
    })
 
-   console.log('click123')
 
 </script>
 
