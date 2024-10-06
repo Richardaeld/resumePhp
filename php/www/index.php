@@ -27,11 +27,7 @@ spl_autoload_register(function ($class) {
    </div>
 </body>
 
-<footer>
-   <?=Footer::STYLES['footer']?>
-   <?=Footer::DisplayLinks()?>
-   <?=Footer::DisplayAuthorSignature()?>
-</footer>
+<?=Footer::displayFooter()?>
 <script>
    let
       hoverTimeout,
