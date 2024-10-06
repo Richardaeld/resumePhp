@@ -38,7 +38,7 @@ spl_autoload_register(function ($class) {
 
    function flip (event) {
       clearTimeout(hoverTimeout);
-      if (event.target.matches('.hover-card')) {
+      if (event.target.matches('.greeting-card')) {
          hoverTimeout = setTimeout(() => {
             event.target.classList.toggle('open')
             console.log(event)
@@ -46,7 +46,7 @@ spl_autoload_register(function ($class) {
       }
    }
 
-   document.querySelectorAll('.hover-card').forEach(card => {
+   document.querySelectorAll('.greeting-card').forEach(card => {
       console.log({card:card})
       card.addEventListener('mouseover', flip)
       card.addEventListener('click', flip)

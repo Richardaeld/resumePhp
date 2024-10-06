@@ -22,7 +22,7 @@ class Cards {
 
    static function greetingCards (array $cards) :void {
       foreach ($cards as $name => $values) { ?>
-<div class="hover-card">
+<div class="greeting-card">
    <!-- 1st -->
    <div>
       <div><div><?=$values['logo']?></div></div>
