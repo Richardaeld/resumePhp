@@ -43,6 +43,11 @@ spl_autoload_register(function ($class) {
 
             <!-- 2nd -->
             <div>
+               <img src="images/smitten1.jpg" alt="">
+            </div>
+
+            <!-- 3rd -->
+            <div>
                <div><span class="smitten">img</span></div>
                <div>
                   <h2>Fully Responsive</h2>
@@ -56,14 +61,6 @@ spl_autoload_register(function ($class) {
                <p>Get started</p>
             </div>
 
-            <!-- 3rd -->
-            <div>
-               "test"
-               <img src="images/smitten1.jpg" alt="">
-            </div>
-
-            <!-- 4th -->
-            <div></div>
          </div>
       <?php } ?>
 

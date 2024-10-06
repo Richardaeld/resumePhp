@@ -1,12 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Bungee+Tint&display=swap');
 :root {
-   --dark-background: #030f18;
+   /* --dark-background: #fff; */
+   /* --dark-background: #030f18;
    --dark-primary:#001f3f;
    --dark-secondary:#43b7ff;
    --dark-tertiary:#1a1a1a;
-   --dark-color:#fafbfc;
+   --dark-color:#fafbfc; */
+   --dark-background: rgb(3, 15, 24);
+   /* --dark-primary: rgb(0, 31, 63);
+   --dark-secondary: rgb(67, 183, 255);
+   --dark-tertiary: rgb(26, 26, 26); */
+   --dark-color: rgb(250, 251, 252);
 
-   --dark-headerBoxShadow: rgba(255,255,255,.75)
+   /* --dark-headerBoxShadow: rgba(255,255,255,.75) */
+
+
+   --dark-primary: #5c4b8a;
+   /* --dark-primary: rgba(92, 75, 138, 1); */
+
+   --dark-secondary: #8A5C4B;
+   /* --dark-secondary: rgba(138, 92, 75, 1); */
+
+   --dark-tertiary: #4B8A5C;
+   /* --dark-tertiary: rgba(75, 138, 92, 1) */
 }
 
 body {
@@ -111,52 +127,63 @@ header nav {
 .cards {
    display: flex;
    flex-direction: row;
-   /* flex-wrap: wrap; */
    justify-content: space-around;
    margin-top: 1em;
+margin: 3rem;;
 }
 
 .cards div {
-   width: 30%;
-   margin: 2rem;
+
 }
 
 .hover-card {
    position: relative;
    perspective:200rem;
+   width: 20%;
+   margin: 2rem;
 }
 
-.hover-card div {
+.hover-card > div {
    pointer-events:none;
    transform-style: preserve-3d;
    backface-visibility: hidden;
    -webkit-backface-visibility: hidden;
-   /* transition: 5s; */
-   /* transition: all 1s ease; */
-   transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
    will-change: transform;
-
-  width: 100%;
+   width: 100%;
    height: 100%;
+   border-radius: 3px;
+   box-shadow:
+      inset  1px  0px 3px 0px rgba(255, 255, 255, 0.4),
+      inset  0px  1px 3px 0px rgba(255, 255, 255, 0.4),
+      inset -1px -0px 3px 0px rgba(255, 255, 255, 0.4),
+      inset -0px -1px 3px 0px rgba(255, 255, 255, 0.4);
+   padding: 1rem;
 }
 
-/* Left page */
-.hover-card > div:nth-child(1) {
-   z-index: 3;
-   transform: rotateY(360deg);
-   position: absolute;
-   background-color: red;
-   transition: 2.5s;
-   transform-origin: left;
-}
+.hover-card > div:nth-child(1),
 .hover-card > div:nth-child(2) {
    z-index: 3;
+   transition: transform 1.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+   transform-origin: left;
+}
+/* Left page */
+.hover-card > div:nth-child(1) {
+   transform: rotateY(360deg);
+   background:
+      linear-gradient(to bottom, var(--dark-primary), var(--dark-primary)),
+      /* radial-gradient(circle, rgba(92, 75, 138, .8), rgba(92, 75, 138, .6)), */
+      radial-gradient(circle, rgba(255, 255, 255, .4), rgba(255, 255, 255, .2)),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2))
+      ;
+   background-blend-mode: overlay;
+   background-size: cover;
+   position: absolute;
+}
+.hover-card > div:nth-child(2) {
    transform: rotateY(180deg) translateX(-100%);
    position: relative;
-   background-color: red;
-   transition: 2.5s;
-   transform-origin:left
 }
+
 /* right page */
 .hover-card > div:nth-child(3) {
    z-index: 0;
@@ -164,42 +191,39 @@ header nav {
    position: absolute;
    background-color: aquamarine;
 }
-.hover-card > div:nth-child(4) {
-   z-index: 0;
+.hover-card > div:nth-child(3)::before {
+   content: '';
    position: absolute;
-   transform: rotateY(-180deg);
+   height: 100%;
+   width: 100%;
+   top: 0;
+   left: 0;
+   /* transition: transform 1.55s cubic-bezier(0.25, 0.1, 0.25, 1); */
+   transition: 1.25s;
+   background: rgba(0, 0, 0, 0.15);
+   filter: blur(8px)
+
 }
-
-
 .hover-card.open > div:nth-child(1) {
-   /* transform: rotateY(-180deg) translateX(-100%); */
    transform: rotateY(180deg);
+   /* box-shadow:
+   inset  1px  1px 10px 0px rgba(255, 255, 255, 0.4),
+   inset -1px -1px 10px 0px rgba(255, 255, 255, 0.4); */
 }
 .hover-card.open > div:nth-child(2) {
    transform: rotateY(0deg) translateX(-100%);
-   /* transform: rotateY(360deg); */
+   /* box-shadow:
+   inset  1px  1px 10px 0px rgba(255, 255, 255, 0.4),
+   inset -1px -1px 10px 0px rgba(255, 255, 255, 0.4); */
 }
-
-/* .hover-card.open > div:nth-child(1) {
-   transform: rotateY(0deg) translateX(-100%);
-   background-color: red;
+.hover-card.open > div:nth-child(3)::before {
+   transform: translateX(-100%);
 }
-.hover-card.open > div:nth-child(2) {
-   transform: rotateY(0deg) translateX(-100%);
-   background-color: #43b7ff;
-}
-.hover-card.open > div:nth-child(3) {
-   transform: rotateY(0deg) translateX(50%);
-   background-color: aquamarine;
-}
-.hover-card.open > div:nth-child(4) {
-   transform: rotateY(-180deg);
-} */
 
 .hover-card img {
    width: 100%;
    height: 250px;
-   object-fit: cover;
+   object-fit:scale-down;
    border-radius: 5px;
 }
 /* ===================== */
@@ -218,7 +242,7 @@ header nav {
 /* Footer */
 /* ===================== */
 footer {
-   background-color: var(--dark-tertiary);
+   background-color: var(--dark-primary);
    padding: 1.25em;
    text-align: center;
    font-family: "Roboto", sans-serif;
