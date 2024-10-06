@@ -20,24 +20,10 @@ spl_autoload_register(function ($class) {
    <title>Resume</title>
 </head>
 
-<header>
-   <div>
-      Richard Eldridge
-      <span>
-         Software Developer
-      </span>
-   </div>
-   <?=Header::displayNavLinks()?>
-   <div>
-      switcher
-   </div>
-</header>
-
+<?=Header::displayHeader()?>
 <body>
    <div class="cards">
       <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
-
-
    </div>
 
 </body>
