@@ -66,6 +66,13 @@ footer div a i {
 HTML,
    ];
 
+   static function DisplayFooter () { ?>
+<footer>
+   <?=self::STYLES['footer']?>
+   <?=self::DisplayLinks()?>
+   <?=self::DisplayAuthorSignature()?>
+</footer><?php
+   }
 
    static function DisplayLinks () { ?>
 <div>
