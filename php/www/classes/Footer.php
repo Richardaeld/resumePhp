@@ -38,10 +38,8 @@ footer {
    background-color: var(--dark-primary);
    padding: 1.25em;
    text-align: center;
-   font-family: "Roboto", sans-serif;
-   /* font-family: "Roboto"; */
-   /* font-family: "Anton SC", sans-serif; */
-   /* font-family: "Bungee Tint", "sans-serif"; */
+   font-family: "ubuntu mono", sans-serif;
+   /* font-family: "Roboto", sans-serif; */
    color: var(--dark-color-dark-background);
    display: flex;
    flex-direction: column;

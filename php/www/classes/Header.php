@@ -29,7 +29,9 @@ header {
    background-color: var(--dark-primary);
    padding: 1.25em;
    text-align: center;
-   font-family: "Roboto", sans-serif;
+   font-family: "tilt warp", sans-serif;
+   /* font-family: "montserrat", sans-serif; */
+   /* font-family: "ubuntu mono", sans-serif; */
    flex-direction: row;
    justify-content: space-around;
 }
@@ -68,8 +70,8 @@ header div:first-child {
    flex-direction: column;
 }
 header div:first-child span {
-   /* font-family: "Bungee Tint sans-serif"; */
-   font-family: "Roboto", sans-serif;
+   font-family: "ubuntu mono", sans-serif;
+   /* font-family: "tilt warp", sans-serif; */
    font-size: 1.25em;
 }
 

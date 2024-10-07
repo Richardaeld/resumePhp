@@ -22,30 +22,33 @@ class Cards {
 
    static function greetingCards (array $cards) :void {
       foreach ($cards as $name => $values) { ?>
-<div class="greeting-card">
-   <!-- 1st -->
-   <div>
-      <div><div><?=$values['logo']?></div></div>
-      <div>View <?=$name?></div>
+<div class="greeting-card-container">
+   <div class="greeting-card">
+      <!-- 1st -->
+      <div>
+         <div><div><?=$values['logo']?></div></div>
+         <div>View <?=$name?></div>
+      </div>
+
+      <!-- 2nd -->
+      <div><img src="<?=$values['image']?>" alt="<?=$values['imageAltText']?>"></div>
+
+      <!-- 3rd -->
+      <div>
+         <div>
+            <!-- <h2>Fully Responsive</h2> -->
+            <p>
+               <?=$values['description']?><br>
+               <b>Stack Used:</b> <br><?=$values['stack']?>
+            </p>
+         </div>
+         <!-- <p>Get started</p> -->
+      </div>
    </div>
 
-   <!-- 2nd -->
-   <div><img src="<?=$values['image']?>" alt="<?=$values['imageAltText']?>"></div>
-
-   <!-- 3rd -->
    <div>
-      <div>
-         <!-- <h2>Fully Responsive</h2> -->
-         <p>
-            <?=$values['description']?><br>
-            <b>Stack Used:</b> <br><?=$values['stack']?>
-         </p>
-         <div>
-            <button>Repo</button>
-            <button>App</button>
-         </div>
-      </div>
-      <!-- <p>Get started</p> -->
+      <span>Repo</span>
+      <span>App</span>
    </div>
 
 </div><?php
