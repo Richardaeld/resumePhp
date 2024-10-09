@@ -26,6 +26,9 @@ spl_autoload_register(function ($class) {
    <div class="cards">
       <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
    </div>
+   <div>
+   </div>
+
 </body>
 
 <?=Footer::displayFooter()?>

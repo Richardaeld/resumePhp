@@ -52,6 +52,7 @@ body {
 .cards {
    display: flex;
    flex-direction: row;
+   flex-wrap: wrap;
    justify-content: space-around;
    margin: 3em;
 }
@@ -60,7 +61,7 @@ body {
 /* Animation and color */
 /* ===================== */
 .greeting-card-container {
-   width: calc(50%);
+   width: calc(30%);
    background-color: aqua;
    display: flex;
    flex-direction: column;
@@ -247,6 +248,10 @@ body {
    align-items: center;
    flex-direction: column;
 }
+.greeting-card > div:nth-child(1) > div:last-child p {
+   padding: .25em;
+   text-align: center;
+}
 /* Arrow */
 .greeting-card > div:nth-child(1) > div > div:first-child::after {
    content: '';
@@ -274,7 +279,9 @@ body {
 .greeting-card > div:nth-child(3) p {
    margin: 0;
    padding: .75em .5em .25em .5em;
+   overflow: ellipsis;
    text-overflow: ellipsis;
+   height: 10px;
 }
 .greeting-card > div:nth-child(3) > div {
    display: flex;
