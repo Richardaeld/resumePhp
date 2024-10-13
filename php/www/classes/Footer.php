@@ -35,12 +35,12 @@ class Footer {
 /* Footer */
 /* ===================== */
 footer {
-   background-color: var(--dark-primary);
+   background-color: var(--primary);
    padding: 1.25em;
    text-align: center;
    font-family: "ubuntu mono", sans-serif;
    /* font-family: "Roboto", sans-serif; */
-   color: var(--dark-color-dark-background);
+   color: var(--color-dark-background);
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -57,7 +57,7 @@ footer div p {
    /* font-family: "Anton SC"; */
 }
 footer div a i {
-   color:var(--dark-color-dark-background);
+   color:var(--color-dark-background);
    font-size: 2.5rem;
 }
 </style>

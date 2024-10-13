@@ -17,7 +17,7 @@ class Header {
 /* General and spacing */
 header,
 header a {
-   color: var(--dark-color-dark-background);
+   color: var(--color-dark-background);
 }
 
 header,
@@ -26,7 +26,7 @@ header > * {
 }
 
 header {
-   background-color: var(--dark-primary);
+   background-color: var(--primary);
    padding: 1.25em;
    text-align: center;
    font-family: "tilt warp", sans-serif;
@@ -93,6 +93,19 @@ header nav {
 HTML,
    ];
 
+const SCRIPTS = [
+   'switcher' =>
+      <<<HTML
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('#switcher').addEventListener('click', function() {
+         document.body.classList.toggle('dark-mode');
+      })
+   });
+</script>
+HTML,
+];
+
    static function displayHeader () : void { ?>
    <?=self::STYLES['header']?>
 <header>
@@ -103,10 +116,12 @@ HTML,
       </span>
    </div>
    <?=self::displayNavLinks()?>
-   <div>
+   <div id="switcher">
       switcher
    </div>
-</header><?php
+</header>
+<?=self::SCRIPTS['switcher']?>
+<?php
    }
 
 

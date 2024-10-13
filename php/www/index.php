@@ -22,7 +22,7 @@ spl_autoload_register(function ($class) {
 
 <?=Header::displayHeader()?>
 
-<body>
+<body class="dark-mode">
    <div class="cards">
       <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
    </div>

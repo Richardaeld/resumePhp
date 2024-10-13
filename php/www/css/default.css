@@ -8,31 +8,43 @@
    --dark-secondary:#43b7ff;
    --dark-tertiary:#1a1a1a;
    --dark-color-dark-background:#fafbfc; */
-   --dark-background: rgb(3, 15, 24);
    /* --dark-primary: rgb(0, 31, 63);
    --dark-secondary: rgb(67, 183, 255);
    --dark-tertiary: rgb(26, 26, 26); */
-   --dark-color-dark-background: rgb(250, 251, 252);
-   --dark-color-light-background: rgb(14, 45, 77);
+
+
+   --background: rgb(244, 255, 255);
+   /* --dark-background: rgb(255,255,255); */
+   --color-light-background: rgb(250, 251, 252);
+   --color-dark-background: rgb(14, 45, 77);
 
    /* --dark-headerBoxShadow: rgba(255,255,255,.75) */
 
 
-   --dark-primary: #5c4b8a;
+   --primary: #866dcc;
    /* --dark-primary: rgba(92, 75, 138, 1); */
 
-   --dark-secondary: #8A5C4B;
+   --secondary: #8A5C4B;
    /* --dark-secondary: rgba(138, 92, 75, 1); */
-
-   --dark-tertiary: #4B8A5C;
+   
+   --tertiary: #4B8A5C;
    /* --dark-tertiary: rgba(75, 138, 92, 1) */
+}
+
+.dark-mode {
+   --primary: #5c4b8a;
+   --background: rgb(3, 15, 24);
+   --color-dark-background: rgb(250, 251, 252);
+   --color-light-background: rgb(14, 45, 77);
+   --secondary: #8A5C4B;
+   --tertiary: #4B8A5C;
 }
 
 body {
    padding: 0;
    margin: 0;
-   background-color: var(--dark-background);
-   color: var(--dark-color-dark-background);
+   background-color: var(--background);
+   color: var(--color-dark-background);
    font-family: "ubuntu mono", sans-serif;
 
 }
@@ -62,29 +74,34 @@ body {
 /* ===================== */
 .greeting-card-container {
    width: calc(30%);
-   background-color: aqua;
+   /* background-color: aqua; */
+   background-color: transparent;
    display: flex;
    flex-direction: column;
    align-items: end;
 }
-/* Buttons */
+
+/* ========== Buttons */
 .greeting-card-container > div:last-child {
    width: 100%;
    display: flex;
    justify-content: space-evenly;
    padding-bottom: .75em;
 }
-.greeting-card-container > div:last-child span {
+.greeting-card-container > div:last-child span,
+.greeting-card-container > div:last-child span a {
    color: var(--dark-color-light-background);
    cursor: pointer;
    transition: .25s;
-   background:aqua;
+   /* background:aqua; */
+   background:transparent;
    padding: .5em;
    border-radius: 10px;
    position: relative;
    z-index: 10;
    /* transform-style: preserve-3d;
    perspective: 100rem; */
+   text-decoration: none;
 }
 .greeting-card-container > div:last-child span::after {
    content: '';
@@ -100,7 +117,7 @@ body {
    z-index: 0;
    transform: translateX(-50%); 
    background:
-      linear-gradient(to bottom, var(--dark-primary), var(--dark-primary)),
+      linear-gradient(to bottom, var(--primary), var(--primary)),
       /* radial-gradient(circle, rgba(92, 75, 138, .8), rgba(92, 75, 138, .6)), */
       radial-gradient(circle, rgba(255, 255, 255, .4), rgba(255, 255, 255, .2)),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
@@ -126,16 +143,16 @@ body {
    /* background-color: #5c4b8a; */
 }
 .greeting-card-container > div:last-child span:hover {
-   color: var(--dark-color-dark-background);
+   color: var(--color-dark-background);
 }
 
-
+/* ========== Card Animation */
 .greeting-card {
    position: relative;
    perspective:200rem;
    width: calc(50% - .75em );
    margin: .75em;
-   color: var(--dark-color-light-background);
+   color: var(--color-light-background);
    transition: 1.25s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
@@ -147,13 +164,12 @@ body {
    will-change: transform;
    width: 100%;
    height: 100%;
-
 }
 
 .greeting-card > div {
 /* .greeting-card-container button { */
    background:
-      linear-gradient(to bottom, var(--dark-primary), var(--dark-primary)),
+      linear-gradient(to bottom, var(--primary), var(--primary)),
       /* radial-gradient(circle, rgba(92, 75, 138, .8), rgba(92, 75, 138, .6)), */
       radial-gradient(circle, rgba(255, 255, 255, .4), rgba(255, 255, 255, .2)),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
@@ -195,7 +211,7 @@ body {
 /* Left page */
 .greeting-card > div:nth-child(1) {
    position: absolute;
-   color: var(--dark-color-light-background);
+   color: var(--color-light-background);
    font-weight: bold;
    transform: rotateY(360deg);
 }
@@ -209,7 +225,7 @@ body {
    z-index: 0;
    top: 0;
    position: absolute;
-   color: var(--dark-color-light-background);
+   color: var(--color-light-background);
 }
 /* Shadow */
 .greeting-card > div:nth-child(3)::before {
@@ -282,6 +298,7 @@ body {
    overflow: ellipsis;
    text-overflow: ellipsis;
    height: 10px;
+   margin-bottom: .25em;
 }
 .greeting-card > div:nth-child(3) > div {
    display: flex;
@@ -292,7 +309,7 @@ body {
 .greeting-card > div:nth-child(3) > div > div:last-child {
    display: flex;
    justify-content: space-evenly;
-   color: var(--dark-color-dark-background);
+   color: var(--color-dark-background);
 }
 /* .greeting-card > div:nth-child(3) > div > div:last-child button {
    color: var(--dark-color-dark-background);
@@ -310,18 +327,7 @@ body {
    object-fit:scale-down;
    border-radius: 5px;
 }
-/* ===================== */
-/* Project icons */
-/* ===================== */
-.smitten {
-   border: 2px solid rgb(202, 22, 94);
-   border-radius: 5px;
-   background-color: rgb(202, 22, 94);
-   color: rgb(255, 254, 252);
-   padding: 0 .2em;
-   /* margin-right: 3px; */
-   font-size: 3.5rem;
-}
+
 
 
 
@@ -344,6 +350,20 @@ body {
 .greeting-card.open {
    /* width: 40%; */
 
+}
+
+
+/* ===================== */
+/* Project icons */
+/* ===================== */
+.smitten {
+   border: 2px solid rgb(202, 22, 94);
+   border-radius: 5px;
+   background-color: rgb(202, 22, 94);
+   color: rgb(255, 254, 252);
+   padding: 0 .2em;
+   /* margin-right: 3px; */
+   font-size: 3.5rem;
 }
 
 
