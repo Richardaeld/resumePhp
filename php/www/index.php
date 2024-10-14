@@ -26,7 +26,9 @@ spl_autoload_register(function ($class) {
    <div class="cards">
       <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
    </div>
-   <div>
+
+   <div class="cards">
+      <?=Cards::detailsCard(Cards::GREETING_CARDS)?>
    </div>
 
 </body>

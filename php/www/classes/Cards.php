@@ -137,7 +137,33 @@ class Cards {
    </div>
 
 </div><?php
+break;
       }
    }
 
+
+   static function detailsCard (array $cards) : void { ?>
+<div class="details-card-container">
+   <div class="details-card">
+      <div>
+         <span>logo</span>
+         <img src="" alt="">
+      </div>
+      <div>
+         <p>
+            <h3>name</h3>
+            $values['description']
+         </p>
+      </div>
+      <div>
+         <span><a href="<?=$values['app']?>">App</a></span>
+      </div>
+   </div>
+   <div>
+      <?php foreach ($cards as $name => $values) {?>
+         <div><?=$name?></div>
+      <?php } ?>
+   </div>
+</div>
+   <?php }
 }
