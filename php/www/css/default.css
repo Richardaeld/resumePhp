@@ -370,11 +370,13 @@ body {
    color: var(--color-light-background);
    padding: .2em;
    border-radius: 10px;
-   box-shadow: 
-        1px  0px 3px 0px rgba(255, 255, 255s, 0.74),
-        0px  1px 3px 0px rgba(255, 255, 255, 0.74),
-       -1px -0px 3px 0px rgba(255, 255, 255, 0.74),
-       -0px -1px 3px 0px rgba(255, 255, 255, 0.74);
+   box-shadow:
+      1px  0px 3px 0px rgba(255, 255, 255s, 0.74),
+      0px  1px 3px 0px rgba(255, 255, 255, 0.74),
+      -1px -0px 3px 0px rgba(255, 255, 255, 0.74),
+      -0px -1px 3px 0px rgba(255, 255, 255, 0.74);
+
+   
 }
 .details-card-container > div:last-child > div::before {
    content: '';
