@@ -150,9 +150,9 @@ break;
          <img src="" alt="">
       </div>
       <div>
+         <h3>name</h3>
          <p>
-            <h3>name</h3>
-            $values['description']
+            <span>$values['description']<span>
          </p>
       </div>
       <div>
@@ -161,9 +161,43 @@ break;
    </div>
    <div>
       <?php foreach ($cards as $name => $values) {?>
-         <div><?=$name?></div>
+         <div data-card-name="<?=$name?>"><?=$name?></div>
       <?php } ?>
    </div>
 </div>
+
+<script>
+   const
+      cards             = <?=json_encode(self::GREETING_CARDS)?>,
+      target            = document.querySelector('.details-card-container'),
+      detailCardButtons = document.querySelectorAll('.details-card-container div[data-card-name]');
+
+   // @ Update the details card
+   function updateName        (card) { target.querySelector('h3').textContent     = card;                      }
+   function updateDescription (card) { target.querySelector('p span').textContent = cards[card]['description'];}
+   function updateApp         (card) { target.querySelector('div a').href         = cards[card]['app'];        }
+   function updateRepo        (card) { target.querySelector('div span a').href    = cards[card]['repo'][0];    }
+   function updateStack       (card) { target.querySelector('p span').textContent = cards[card]['stack'];      }
+   function updateLogo        (card) { target.querySelector('div img').src        = cards[card]['image'];      }
+   function updateDetailsCard (card) {
+      updateName(card);
+      updateDescription(card);
+      updateApp(card);
+      updateRepo(card);
+      updateStack(card);
+      updateLogo(card);
+   }
+
+   updateDetailsCard('Smitten')
+
+   // @ event for updating details card
+   detailCardButtons.forEach(button => {
+      button.addEventListener('click', () => {
+         updateDetailsCard(button.textContent);
+      });
+   });
+
+</script>
+
    <?php }
 }
