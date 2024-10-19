@@ -146,19 +146,29 @@ break;
 <div class="details-card-container">
    <div class="details-card">
       <div>
-         <span>logo</span>
-         <img src="" alt="">
-      </div>
-      <div>
          <h3>name</h3>
-         <p>
-            <span>$values['description']<span>
-         </p>
-      </div>
-      <div>
-         <span><a href="<?=$values['app']?>">App</a></span>
+         <div>
+            <img src="" alt="">
+            <div>
+               <div>
+                  <span>logo</span>
+               </div>
+               <div>
+                  <p>
+                     <span></span>
+                  </p>
+                  <p>
+                     <b>Stack Used</b><br/>
+                     <span></span>
+                  </p>
+               </div>
+               <div><span><a href="<?=$values['app']?>">App</a></span></div>
+            </div>
+         </div>
+
       </div>
    </div>
+
    <div>
       <?php foreach ($cards as $name => $values) {?>
          <div data-card-name="<?=$name?>"><?=$name?></div>
@@ -174,10 +184,10 @@ break;
 
    // @ Update the details card
    function updateName        (card) { target.querySelector('h3').textContent     = card;                      }
-   function updateDescription (card) { target.querySelector('p span').textContent = cards[card]['description'];}
+   function updateDescription (card) { target.querySelector('p:first-child').textContent = cards[card]['descriptionLong'];}
    function updateApp         (card) { target.querySelector('div a').href         = cards[card]['app'];        }
    function updateRepo        (card) { target.querySelector('div span a').href    = cards[card]['repo'][0];    }
-   function updateStack       (card) { target.querySelector('p span').textContent = cards[card]['stack'];      }
+   function updateStack       (card) { target.querySelector('p:last-child span').textContent = cards[card]['stack'];      }
    function updateLogo        (card) { target.querySelector('div img').src        = cards[card]['image'];      }
    function updateDetailsCard (card) {
       updateName(card);
@@ -188,16 +198,42 @@ break;
       updateLogo(card);
    }
 
+
+   document.querySelectorAll('.details-card-container div[data-card-name]')[0].classList.add('selected');
    updateDetailsCard('Smitten')
 
+
+
+   function removeSelected () {
+      detailCardButtons.forEach(button => {
+         button.classList.remove('selected');
+      });
+   }
    // @ event for updating details card
    detailCardButtons.forEach(button => {
       button.addEventListener('click', () => {
-         updateDetailsCard(button.textContent);
+         removeSelected();
+         button.classList.add('selected');
+
+         setTimeout(() => {
+            target.querySelector('.details-card > div').classList.add('animate');
+         }, 1);
+
+         setTimeout(() => {
+            updateDetailsCard(button.textContent);
+         }, 500);
+
+         setTimeout(() => {
+            target.querySelector('.details-card > div').classList.remove('animate');
+         }, 1000);
       });
    });
 
+
 </script>
+
+
+
 
    <?php }
 }
