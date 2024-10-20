@@ -7,7 +7,7 @@ class Cards {
    ];
 
    const GREETING_CARDS  = [
-      'Smitten' => [
+      'Smitten (Hackathon)' => [
          'logo'            => '<span class="smitten">S</span>',
          'image'           => 'images/smitten1.jpg',
          'imageAltText'    => 'An image of the smitten game being played.',
@@ -19,8 +19,9 @@ class Cards {
          'stack'           => 'JavaScript, HTML, CSS, Bootstrap, JSON',
          'repo'            => ['https://github.com/alissatroiano/8-your-heart-out'],
          'app'             => 'https://alissatroiano.github.io/8-your-heart-out/',
+         'awards'          => "1st place in Code Institute's, \"Love is in the Air\" hackathon. ",
       ],
-      'Spinning Wheelchairs' => [
+      'Spinning Wheelchairs (Hackathon)' => [
          'logo'            => '<span class="spinning-wheelchairs">SWC</span>',
          'image'           => 'images/spinning-wheel.jpg',
          'imageAltText'    => 'An image of a spinning wheelchair.',
@@ -32,6 +33,7 @@ class Cards {
          'stack'           => 'JavaScript, HTML, CSS, Bootstrap',
          'repo'            => ['https://github.com/Richardaeld/Hackathaon-trust-in-soda-team-2'],
          'app'             => 'https://richardaeld.github.io/Hackathaon-trust-in-soda-team-2/',
+         'awards'          => "3rd place in Code Institute's, \"Trust in SODA 2021\" hackathon.",
       ],
       'Romancing the Cards' => [
          'logo'            => '<span class="romancing-cards">RC</span>',
@@ -45,6 +47,7 @@ class Cards {
          'stack'           => 'JavaScript, HTML, CSS, Bootstrap',
          'repo'            => ['https://github.com/Richardaeld/google_translate_game'],
          'app'             => 'https://richardaeld.github.io/google_translate_game/',
+         'awards'          => '',
       ],
       'DM Tool' => [
          'logo'            => '<span class="dm-tool">DM</span>',
@@ -58,6 +61,7 @@ class Cards {
          'stack'           => 'Docker, PostgerSQL, Knex.js, React, Express, Node, JavaScript, Bootstrap, HTML, CSS',
          'repo'            => ['https://github.com/Richardaeld/dm_tool_api', 'https://github.com/Richardaeld/DND_Into_The_Abyss'],
          'app'             => '',
+         'awards'          => '',
       ],
       'Fat Raccoon' => [
          'logo'            => '<span class="fat-raccoon">FR</span>',
@@ -71,6 +75,7 @@ class Cards {
          'stack'           => 'Docker Python, Flask, MongoDB, JavaScript, HTML, CSS, Bootstrap Github',
          'repo'            => ['https://github.com/Richardaeld/Fat_Racoon_Kitchen'],
          'app'             => '',
+         'awards'          => 'This project received a Merit for going above and beyond class requirements.',
       ],
       'Eldridge M.B. Emporium' => [
          'logo'            => '<span class="eldridge-mb-emporium">EME</span>',
@@ -84,6 +89,7 @@ class Cards {
          'stack'           => 'Docker, Python, Django, PostgreSQL, JavaScript, HTML, CSS, Bootstrap, AWS, Stripe',
          'repo'            => ['https://github.com/Richardaeld/Eldridge_Music'],
          'app'             => '',
+         'awards'          => 'This project received a Merit for going above and beyond class requirements.',
       ],
       'Multittude of Java Projects' => [
          'logo'            => '<span class="multittude-java-projects">MJP</span>',
@@ -97,6 +103,7 @@ class Cards {
          'stack'           => 'Java',
          'repo'            => ['https://github.com/Richardaeld/java-data-structure', 'https://github.com/Richardaeld/java-programming-2'],
          'app'             => '',
+         'awards'          => '',
       ]
    ];
 
@@ -151,10 +158,14 @@ break;
             <img src="" alt="">
             <div>
                <div>
-                  <span>logo</span>
+                  <!-- <span>logo</span> -->
                </div>
                <div>
                   <p>
+                     <span></span>
+                  </p>
+                  <p>
+                     <b>Awards</b><br />
                      <span></span>
                   </p>
                   <p>
@@ -181,13 +192,46 @@ break;
       target            = document.querySelector('.details-card-container'),
       detailCardButtons = document.querySelectorAll('.details-card-container div[data-card-name]');
 
+   function createEl(tag, attributes = {}, children = []) {
+      // Create the element using the specified tag
+      const element = document.createElement(tag);
+
+      // Assign the provided attributes to the element
+      for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, value);
+
+      // Append child elements if any
+      Array.from(children).forEach(child => {
+         (typeof child === 'string')
+            // If the child is a string, create a text node
+            ? element.appendChild(document.createTextNode(child))
+            // Otherwise, assume it's a node and append it directly
+            : element.appendChild(child);
+      });
+
+    return element;
+}
+
+
    // @ Update the details card
-   function updateName        (card) { target.querySelector('h3').textContent     = card;                      }
+   function updateName        (card) { target.querySelector('h3').textContent            = card;                          }
+   function updateApp         (card) { target.querySelector('div a').href                = cards[card]['app'];            }
+   function updateRepo        (card) { target.querySelector('div span a').href           = cards[card]['repo'][0];        }
+   function updateLogo        (card) { target.querySelector('div img').src               = cards[card]['image'];          }
    function updateDescription (card) { target.querySelector('p:first-child').textContent = cards[card]['descriptionLong'];}
-   function updateApp         (card) { target.querySelector('div a').href         = cards[card]['app'];        }
-   function updateRepo        (card) { target.querySelector('div span a').href    = cards[card]['repo'][0];    }
-   function updateStack       (card) { target.querySelector('p:last-child span').textContent = cards[card]['stack'];      }
-   function updateLogo        (card) { target.querySelector('div img').src        = cards[card]['image'];      }
+   function updateAwards      (card) {
+      const funcTarget = target.querySelector('p:nth-child(2)');
+      funcTarget.style.display = (cards[card]['awards'] == '') ? 'none' : 'block' ;
+      funcTarget.querySelector('span').textContent = cards[card]['awards'];
+   }
+   function updateStack       (card) {
+      const ul = createEl('ul');
+      cards[card]['stackArray'].forEach(stack => {
+         const li = createEl('li', {}, stack);
+         ul.appendChild(li);
+      });
+      target.querySelector('p:last-child span').innerHTML = '';
+      target.querySelector('p:last-child span').appendChild(ul);
+   }
    function updateDetailsCard (card) {
       updateName(card);
       updateDescription(card);
@@ -195,11 +239,12 @@ break;
       updateRepo(card);
       updateStack(card);
       updateLogo(card);
+      updateAwards(card);
    }
 
    // ! Dev settings
    document.querySelectorAll('.details-card-container div[data-card-name]')[0].classList.add('selected');
-   updateDetailsCard('Smitten')
+   updateDetailsCard('Smitten (Hackathon)')
    // ! Dev settings
 
    function removeSelected (previousButton) {

@@ -460,15 +460,38 @@ body {
    min-width: 300px;
    max-width: 30vw;
    object-fit: scale-down;
+   box-shadow:
+      1px 1px 2px 4px rgba(0, 0, 0, 0.2),
+      -1px -1px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .details-card div p {
-   width: 100%;
+   width: fit-content;
    min-height: 5em;
    height: 10em;
    max-height: 15em;
    z-index:200;
    position: relative;
+   margin: auto 1.5em;
+}
+.details-card div p {
+   height: fit-content;
+}
+.details-card div p:nth-child(2) {
+   margin-top: 2em;
+}
+.details-card div p ul {
+   display: flex;
+   flex-direction: row;
+   width: fit-content;
+   flex-wrap: wrap;
+}
+.details-card div p ul li {
+   margin-left: 1.5em;
+   flex: 1 1 100px;
+}
+.details-card div p ul li::marker {
+   color: var(--primary);
 }
 .details-card > div > div > div:last-child {
    display: flex;
