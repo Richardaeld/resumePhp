@@ -374,8 +374,23 @@ body {
 }
 .details-card-container > div:last-child > div.selected {
    margin-left:0;
+   background-color: var(--primary);
+   color: var(--color-dark-background);
+   box-shadow:
+      1px  0px 3px 0px rgba(255, 255, 255, 0.74),
+      0px  0px 0px 0px rgba(255, 255, 255, 0.74),
+      1px  0px 3px 0px rgba(255, 255, 255, 0.74),
+      0px  0px 0px 0px rgba(255, 255, 255, 0.74);
 }
-
+.details-card-container > div:last-child > div.selected:hover {
+   border-top-left-radius: 0;
+   border-bottom-left-radius: 0;
+   box-shadow:
+      1px  0px 3px 0px rgba(255, 255, 255, 0.74),
+      0px  1px 3px 0px rgba(255, 255, 255, 0.74),
+      1px -0px 3px 0px rgba(255, 255, 255, 0.74),
+      0px -1px 3px 0px rgba(255, 255, 255, 0.74);
+}
 
 .details-card-container > div:last-child > div {
    position: relative;
@@ -478,21 +493,21 @@ body {
 /* animation */
 @keyframes scaleDown {
    0% {
-      opacity: 1;
+      /* opacity: 1; */
       clip-path: inset(0);
    }
    25% {
-      opacity: 0;
-      clip-path: inset(0 100% 0 0);
+      /* opacity: 0; */
    }
    50% {
-      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+      /* opacity: 0; */
    }
    75% {
-      clip-path: inset(0 0% 0 100%);
    }
    100% {
-      opacity: 1;
+      /* clip-path: inset(0 0% 0 100%); */
+      /* opacity: 1; */
       clip-path: inset(0);
    }
 }
