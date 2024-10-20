@@ -132,8 +132,8 @@ class Cards {
    </div>
 
    <div>
-      <?php if (!empty($values['repo'])) { foreach ($values['repo'] as $link) {?><span><a href="<?=$link?>">Repo</a></span><?php          }} ?>
-      <?php if (!empty($values['app']))                                       {?><span><a href="<?=$values['app']?>">App</a></span><?php   } ?>
+      <?php if (!empty($values['repo'])) { foreach ($values['repo'] as $link) {?><span class="fancy-link"><a href="<?=$link?>">Repo</a></span><?php          }} ?>
+      <?php if (!empty($values['app']))                                       {?><span class="fancy-link"><a href="<?=$values['app']?>">App</a></span><?php   } ?>
    </div>
 
 </div><?php
@@ -162,10 +162,9 @@ break;
                      <span></span>
                   </p>
                </div>
-               <div><span><a href="<?=$values['app']?>">App</a></span></div>
+               <div><span class="fancy-link"><a href="<?=$values['app']?>">App</a></span></div>
             </div>
          </div>
-
       </div>
    </div>
 
@@ -198,13 +197,12 @@ break;
       updateLogo(card);
    }
 
-
+   // ! Dev settings
    document.querySelectorAll('.details-card-container div[data-card-name]')[0].classList.add('selected');
    updateDetailsCard('Smitten')
+   // ! Dev settings
 
-
-
-   function removeSelected () {
+   function removeSelected (previousButton) {
       detailCardButtons.forEach(button => {
          button.classList.remove('selected');
       });
@@ -212,9 +210,9 @@ break;
    // @ event for updating details card
    detailCardButtons.forEach(button => {
       button.addEventListener('click', () => {
-         removeSelected();
-         button.classList.add('selected');
+         removeSelected(button);
 
+         button.classList.add('selected');
          setTimeout(() => {
             target.querySelector('.details-card > div').classList.add('animate');
          }, 1);

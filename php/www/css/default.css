@@ -95,8 +95,10 @@ body {
    justify-content: space-evenly;
    padding-bottom: .75em;
 }
-.greeting-card-container > div:last-child span,
-.greeting-card-container > div:last-child span a {
+.fancy-link,
+.fancy-link a {
+/* .greeting-card-container > div:last-child span,
+.greeting-card-container > div:last-child span a { */
 /* .details-card > div > div > div > div:last-child a { */
    color: var(--dark-color-light-background);
    cursor: pointer;
@@ -109,7 +111,8 @@ body {
    text-decoration: none;
 }
 /* APP BUTTON */
-.greeting-card-container > div:last-child span::after {
+.fancy-link::after {
+/* .greeting-card-container > div:last-child span::after { */
 /* .details-card > div > div > div > div:last-child span::after { */
    content: '';
    height: 2px;
@@ -138,7 +141,8 @@ body {
       /* box-shadow: rgba(67, 183, 255, 0.2) 0px 0px 44px, inset rgba(67, 183, 255, 0.2) 0px 0px 30px, rgba(67, 183, 255, 0.2) 0px 0px 55px, rgba(67, 183, 255, 0.4) 0px 0px 75px, rgba(67, 183, 255, 0.4) 0px 0px 95px; */
 }
 /* APP BUTTON */
-.greeting-card-container > div:last-child span:hover::after {
+.fancy-link:hover::after {
+/* .greeting-card-container > div:last-child span:hover::after { */
 /* .details-card > div > div > div > div:last-child span::after { */
    height:100%;
    width: 100%;
@@ -151,7 +155,8 @@ body {
    /* transform: translateX(-.5em); */
    /* background-color: #5c4b8a; */
 }
-.greeting-card-container > div:last-child span:hover {
+.fancy-link:hover {
+/* .greeting-card-container > div:last-child span:hover { */
 /* .details-card > div > div > div > div:last-child span:hover { */
    color: var(--color-dark-background);
 }
