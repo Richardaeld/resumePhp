@@ -4,7 +4,7 @@ class Footer {
       'Github' => [
          'attributes' => [
             'href'       => 'https://github.com/Richardaeld',
-            'aria-label' => 'Link to Richard Eldridge\'s GitHub',
+            'aria-label' => 'Link to Richard Eldridge&apos;s GitHub',
          ],
          'iconClass'  => 'fab fa-github-square',
       ],
@@ -12,7 +12,7 @@ class Footer {
          'attributes' => [
             'rel'        => 'noopener',
             'href'       => 'https://www.linkedin.com/in/richard-eldridge-4200221ab/',
-            'aria-label' => 'Link to Richard Eldridge\'s LinkedIn',
+            'aria-label' => 'Link to Richard Eldridge&apos;s LinkedIn',
          ],
          'iconClass'  => 'fab fa-linkedin',
       ],
@@ -20,7 +20,7 @@ class Footer {
          'attributes' => [
             'rel'        => 'noopener',
             'href'       => 'mailto:richardaeld@gmail.com',
-            'aria-label' => 'Link to Richard Eldridge\'s email',
+            'aria-label' => 'Link to Richard Eldridge&apos;s email',
          ],
          'iconClass'  => 'fas fa-envelope-square',
       ],
@@ -74,12 +74,12 @@ HTML,
 
    static function DisplayLinks () { ?>
 <div>
-   <?php foreach (self::AUTHOR_LINKS as $link) { ?>
+   <?php foreach (self::AUTHOR_LINKS as $linkName => $link) { ?>
       <a
-         <?php foreach ($link['attributes'] as $key => $value)?><?="{$key}='{$value}'"?>
+         <?php foreach ($link['attributes'] as $key => $value) { ?><?=" {$key}='{$value}' "?> <?php }?>
          target="_blank"
       >
-            <i class="<?=$link['iconClass']?>"></i>
+         <i class="<?=$link['iconClass']?>"></i>
       </a>
    <?php } ?>
 </div><?php
