@@ -91,7 +91,21 @@ class Cards {
          'app'             => '',
          'awards'          => 'This project received a Merit for going above and beyond class requirements.',
       ],
-      'Multittude of Java Projects' => [
+      'Java Projects From Programming II' => [
+         'logo'            => '<span class="multittude-java-projects">MJP</span>',
+         'image'           => 'images/multittude-java-projects.jpg',
+         'imageAltText'    => '',
+         'style'           => 'greetingCard',
+         'link'            => 'https://github.com/Richardaeld/Multittude-Java-Projects',
+         'description'     => 'A collection of projects created during Data Structures and Programming II',
+         'descriptionLong' => 'A collection of projects created during Data Structures and Programming II',
+         'stackArray'      => ['Java'],
+         'stack'           => 'Java',
+         'repo'            => ['https://github.com/Richardaeld/java-data-structure', 'https://github.com/Richardaeld/java-programming-2'],
+         'app'             => '',
+         'awards'          => '',
+      ],
+      'Java Projects From Data Structures' => [
          'logo'            => '<span class="multittude-java-projects">MJP</span>',
          'image'           => 'images/multittude-java-projects.jpg',
          'imageAltText'    => '',
@@ -218,7 +232,10 @@ break;
 
    // @ Update the details card
    function updateName        (card) { target.querySelector('h3').textContent            = card;                          }
-   function updateLogo        (card) { target.querySelector('div img').src               = cards[card]['image'];          }
+   function updateImage       (card) {
+      target.querySelector('div img').src               = cards[card]['image'];
+      target.querySelector('div img').alt               = cards[card]['imageAltText'];
+   }
    function updateDescription (card) { target.querySelector('p:first-child').textContent = cards[card]['descriptionLong'];}
    function updateAwards      (card) {
       const funcTarget = target.querySelector('p:nth-child(2)');
@@ -259,8 +276,9 @@ break;
       updateDescription(card);
       updateLinks(card);
       updateStack(card);
-      updateLogo(card);
+      updateImage(card);
       updateAwards(card);
+      activateModal();
    }
 
    // ! Dev settings
@@ -296,6 +314,25 @@ break;
    });
 
 
+function activateModal () {
+   const
+      modal       = document.querySelector("#modalContainer"),
+      img         = document.querySelector(".details-card img"),
+      modalImg    = document.querySelector("#modalImage"),
+      captionText = document.querySelector("#caption"),
+      span        = document.querySelector("#modalContainer > span.close");
+
+   // @ --- event handlers
+   // @ Open modal
+   img.onclick = function() {
+      modal.style.display   = "block";
+      modalImg.src          = this.src;
+      captionText.innerHTML = this.alt;
+   }
+   // @ Close modal
+   span.onclick   = function()      { modal.style.display = "none"; }
+   window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
+}
 </script>
 
 

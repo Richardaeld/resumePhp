@@ -23,6 +23,14 @@ spl_autoload_register(function ($class) {
 <?=Header::displayHeader()?>
 
 <body class="dark-mode">
+   <!-- modal -->
+   <div id="modalContainer" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div id="caption"></div>
+    </div>
+
+
    <div class="cards">
       <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
    </div>
