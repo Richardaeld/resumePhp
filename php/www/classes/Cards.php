@@ -41,7 +41,7 @@ class Cards {
          'logo'            => 'fa-regular fa-heart',
          'year'            => '2022',
          'hackathon'       => 1,
-         'image'           => 'images/smitten1.jpg',
+         'image'           => 'images/smitten.jpg',
          'imageAltText'    => 'An image of the smitten game being played.',
          'style'           => 'greetingCard',
          'link'            => 'https://www.smittenlove.co.uk/',
