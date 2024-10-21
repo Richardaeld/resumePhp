@@ -133,7 +133,7 @@ class Cards {
    static function greetingCards (array $cards) :void {
       foreach ($cards as $name => $values) { ?>
 <div class="greeting-card-container">
-   <div class="greeting-card">
+   <div class="greeting-card" data-greeting-card-name="<?=$name?>">
       <!-- 1st -->
       <div>
          <div>
@@ -149,7 +149,7 @@ class Cards {
       </div>
 
       <!-- 2nd -->
-      <div><img src="<?=$values['image']?>" alt="<?=$values['imageAltText']?>"></div>
+      <div><img data-greeting-card-img="<?=$name?>" src="<?=$values['image']?>" alt="<?=$values['imageAltText']?>"></div>
 
       <!-- 3rd -->
       <div>
@@ -234,6 +234,59 @@ class Cards {
       return element;
    }
 
+   function updateModal (imageSelector) {
+      const
+         modal       = document.querySelector("#modalContainer"),
+         img         = document.querySelector(imageSelector),
+         modalImg    = document.querySelector("#modalImage"),
+         captionText = document.querySelector("#caption"),
+         span        = document.querySelector("#modalContainer > span.close");
+
+      // @ --- event handlers
+      // @ Open modal
+      img.onclick = function() {
+         modal.style.display   = "block";
+         modalImg.src          = this.src;
+         captionText.innerHTML = this.alt;
+      }
+      // @ Close modal
+      span.onclick   = function()      { modal.style.display = "none"; }
+      window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
+   }
+
+   // @ =============================================
+   // @ ============= Open Greeting cards
+   // @ =============================================
+   // @ =============
+   // @ Main functions
+   // @ =============
+   const greetingCards = document.querySelectorAll('.greeting-card');
+
+   function openGreetingCard   (event) { setTimeout(() => event.target.closest('.greeting-card').classList.add('open'),   250); }
+   function toggleGreetingCard (event) { event.target.closest('.greeting-card').classList.toggle('open'); }
+   function closeGreetingCard  (event) { event.target.closest('.greeting-card').classList.remove('open'); }
+
+   greetingCards.forEach((card, index) => {
+      setTimeout(() => {
+         card.classList.add('open')
+      }, 1000 * (index+1));
+   });
+
+   // @ =============
+   // @ Event Handlers
+   // @ =============
+   greetingCards.forEach(card => {
+
+      // console.log(card.querySelector('div:nth-child(3)'))
+
+      updateModal(`.greeting-card img[data-greeting-card-img="${card.dataset.greetingCardName}"]`);
+      // card.addEventListener('mouseover', openGreetingCard);
+      // card.addEventListener('mouseout',  closeGreetingCard);
+      card.addEventListener('click',     toggleGreetingCard);
+      // @ Add event to opened greeting card layer 3
+      // card.querySelector('div:nth-child(1)').addEventListener('click', toggleGreetingCard);
+      card.querySelector('div:nth-child(2) img').addEventListener('click', openGreetingCard);
+   });
 
 
    // @ =============================================
@@ -300,26 +353,6 @@ class Cards {
       }
    }
 
-   function updateModal (imageSelector) {
-      const
-         modal       = document.querySelector("#modalContainer"),
-         img         = document.querySelector(imageSelector),
-         modalImg    = document.querySelector("#modalImage"),
-         captionText = document.querySelector("#caption"),
-         span        = document.querySelector("#modalContainer > span.close");
-
-      // @ --- event handlers
-      // @ Open modal
-      img.onclick = function() {
-         modal.style.display   = "block";
-         modalImg.src          = this.src;
-         captionText.innerHTML = this.alt;
-      }
-      // @ Close modal
-      span.onclick   = function()      { modal.style.display = "none"; }
-      window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
-   }
-
    // @ =============
    // @ Main functions
    // @ =============
@@ -383,12 +416,7 @@ class Cards {
       }, 1000);
    }
 
-   // @ =============================================
-   // @ ============= Open Greeting cards
-   // @ =============================================
-   detailCardButtons.forEach(button => {
-      console.log('button' ,button)
-   })
+
 </script>
    <?php }
 }

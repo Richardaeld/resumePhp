@@ -190,7 +190,9 @@ body {
    width: 100%;
    height: 100%;
 }
-
+.greeting-card.open > div  {
+   pointer-events: all;
+}
 .greeting-card > div {
 /* .greeting-card-container button { */
    background: var(--card-background-color);
