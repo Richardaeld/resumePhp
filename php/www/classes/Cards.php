@@ -165,6 +165,7 @@ class Cards {
    <div>
       <?php if (!empty($values['repo'])) { foreach ($values['repo'] as $link) {?><span class="fancy-link"><a href="<?=$link?>">Repo</a></span><?php          }} ?>
       <?php if (!empty($values['app']))                                       {?><span class="fancy-link"><a href="<?=$values['app']?>">App</a></span><?php   } ?>
+      <span class="fancy-link" onclick="selectDetailsCard(event)" ><a href="#detailsCard" data-card-name="<?=$name?>">Details</a></span>
    </div>
 
 </div><?php
@@ -175,7 +176,7 @@ class Cards {
    static function detailsCard (array $cards) : void { ?>
 <div>
    <div class="details-card-container">
-      <div class="details-card">
+      <div id="detailsCard" class="details-card">
          <div>
             <h3 class="header-text">name</h3>
             <div>
@@ -212,12 +213,10 @@ class Cards {
    </div>
 </div>
 <script>
-   const
-      cards             = <?=json_encode(self::GREETING_CARDS)?>,
-      target            = document.querySelector('.details-card-container'),
-      detailCardButtons = document.querySelectorAll('.details-card-container div[data-card-name]');
-
-   //  @ Create common elements easily and add attributes
+   // @ =============
+   // @ General Helper functions
+   // @ =============
+   // @ Create common elements easily and add attributes
    function createEl(tag, attributes = {}, children = []) {
       const element = document.createElement(tag);
 
@@ -235,19 +234,39 @@ class Cards {
       return element;
    }
 
-   //  @ =========
-   //  @ ========= Update the details card
-   function updateName        (card) { target.querySelector('h3').textContent            = card;                          }
+
+
+   // @ =============================================
+   // @ ============= Update the details card body
+   // @ =============================================
+   const
+      cards             = <?=json_encode(self::GREETING_CARDS)?>,
+      target            = document.querySelector('.details-card-container'),
+      detailCardButtons = document.querySelectorAll('.details-card-container div[data-card-name]');
+
+
+   // @ =============
+   // @ Helper functions
+   // @ =============
+   function updateName        (card) {
+      target.querySelector('h3').textContent            = card;
+   }
+
+   function updateDescription (card) {
+      target.querySelector('p:first-child').textContent = cards[card]['descriptionLong'];
+   }
+
    function updateImage       (card) {
       target.querySelector('div img').src               = cards[card]['image'];
       target.querySelector('div img').alt               = cards[card]['imageAltText'];
    }
-   function updateDescription (card) { target.querySelector('p:first-child').textContent = cards[card]['descriptionLong'];}
+
    function updateAwards      (card) {
       const funcTarget = target.querySelector('p:nth-child(2)');
       funcTarget.style.display = (cards[card]['awards'] == '') ? 'none' : 'block' ;
       funcTarget.querySelector('span').textContent = cards[card]['awards'];
    }
+
    function updateStack       (card) {
       const ul = createEl('ul');
       cards[card]['stack'].forEach(stack => {
@@ -257,6 +276,7 @@ class Cards {
       target.querySelector('p:last-child span').innerHTML = '';
       target.querySelector('p:last-child span').appendChild(ul);
    }
+
    function updateLinks (card) {
       const linkTarget = document.querySelector('.details-card-links');
       linkTarget.innerHTML = '';
@@ -279,6 +299,30 @@ class Cards {
          linkTarget.appendChild(span);
       }
    }
+
+   function updateModal (imageSelector) {
+      const
+         modal       = document.querySelector("#modalContainer"),
+         img         = document.querySelector(imageSelector),
+         modalImg    = document.querySelector("#modalImage"),
+         captionText = document.querySelector("#caption"),
+         span        = document.querySelector("#modalContainer > span.close");
+
+      // @ --- event handlers
+      // @ Open modal
+      img.onclick = function() {
+         modal.style.display   = "block";
+         modalImg.src          = this.src;
+         captionText.innerHTML = this.alt;
+      }
+      // @ Close modal
+      span.onclick   = function()      { modal.style.display = "none"; }
+      window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
+   }
+
+   // @ =============
+   // @ Main functions
+   // @ =============
    function updateDetailsCard (card) {
       updateName(card);
       updateDescription(card);
@@ -286,65 +330,65 @@ class Cards {
       updateStack(card);
       updateImage(card);
       updateAwards(card);
-      activateModal();
+      updateModal(".details-card img");
    }
 
-   // ! Dev settings
-   document.querySelectorAll('.details-card-container div[data-card-name]')[0].classList.add('selected');
-   updateDetailsCard('Smitten')
-   // ! Dev settings
+   function selectDetailsCard (event) {
+      applyTransitionToDetailsCard(document.querySelector(`div[data-card-name="${event.target.dataset.cardName}"]`))
+   }
 
+   // ! Default details card
+   applyTransitionToDetailsCard(document.querySelector(`div[data-card-name="Smitten"]`))
+
+   // @ =============================================
+   // @ ============= Update the details card Buttons
+   // @ =============================================
+   // @ =============
+   // @ Helper functions
+   // @ =============
    function removeSelected (previousButton) {
       detailCardButtons.forEach(button => {
          button.classList.remove('selected');
       });
    }
+   // @ =============
+   // @ Event handlers
+   // @ =============
    // @ event for updating details card
    detailCardButtons.forEach(button => {
       button.addEventListener('click', () => {
-         removeSelected(button);
-
-         button.classList.add('selected');
-         setTimeout(() => {
-            target.querySelector('.details-card > div').classList.add('transitionWipe');
-            document.querySelector('.details-card-links').classList.add('transitionWipe');
-         }, 1);
-
-         setTimeout(() => {
-            updateDetailsCard(button.textContent);
-         }, 500);
-
-         setTimeout(() => {
-            target.querySelector('.details-card > div').classList.remove('transitionWipe');
-            document.querySelector('.details-card-links').classList.remove('transitionWipe');
-         }, 1000);
+         applyTransitionToDetailsCard (button);
       });
    });
 
+   // @ =============
+   // @ Main Functions
+   // @ =============
+   function applyTransitionToDetailsCard (button) {
+      removeSelected(button);
 
-function activateModal () {
-   const
-      modal       = document.querySelector("#modalContainer"),
-      img         = document.querySelector(".details-card img"),
-      modalImg    = document.querySelector("#modalImage"),
-      captionText = document.querySelector("#caption"),
-      span        = document.querySelector("#modalContainer > span.close");
+      button.classList.add('selected');
+      setTimeout(() => {
+         target.querySelector('.details-card > div').classList.add('transitionWipe');
+         document.querySelector('.details-card-links').classList.add('transitionWipe');
+      }, 1);
 
-   // @ --- event handlers
-   // @ Open modal
-   img.onclick = function() {
-      modal.style.display   = "block";
-      modalImg.src          = this.src;
-      captionText.innerHTML = this.alt;
+      setTimeout(() => {
+         updateDetailsCard(button.textContent);
+      }, 500);
+
+      setTimeout(() => {
+         target.querySelector('.details-card > div').classList.remove('transitionWipe');
+         document.querySelector('.details-card-links').classList.remove('transitionWipe');
+      }, 1000);
    }
-   // @ Close modal
-   span.onclick   = function()      { modal.style.display = "none"; }
-   window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
-}
+
+   // @ =============================================
+   // @ ============= Open Greeting cards
+   // @ =============================================
+   detailCardButtons.forEach(button => {
+      console.log('button' ,button)
+   })
 </script>
-
-
-
-
    <?php }
 }

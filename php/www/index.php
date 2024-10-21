@@ -57,13 +57,13 @@ spl_autoload_register(function ($class) {
       if (event.target.matches('.greeting-card')) {
          hoverTimeout = setTimeout(() => {
             event.target.classList.toggle('open')
-            console.log(event)
+            // console.log(event)
          }, 250)
       }
    }
 
    document.querySelectorAll('.greeting-card').forEach(card => {
-      console.log({card:card})
+      // console.log({card:card})
       card.addEventListener('mouseover', flip)
       card.addEventListener('click', flip)
    })
