@@ -271,11 +271,13 @@ class Cards {
       })
 
       // @ App
-      const span = createEl('span', { class: 'fancy-link' });
-      const a = createEl('a', { href: cards[card]['app'] });
-      a.textContent = 'App';
-      span.appendChild(a);
-      linkTarget.appendChild(span);
+      if (cards[card]['app'] !== '') {
+         const span = createEl('span', { class: 'fancy-link' });
+         const a = createEl('a', { href: cards[card]['app'] });
+         a.textContent = 'App';
+         span.appendChild(a);
+         linkTarget.appendChild(span);
+      }
    }
    function updateDetailsCard (card) {
       updateName(card);
