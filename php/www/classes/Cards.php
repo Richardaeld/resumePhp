@@ -11,7 +11,7 @@ class Cards {
          'logo'            => 'fa-solid fa-memory',
          'year'            => '2024',
          'hackathon'       => 0,
-         'image'           => 'images/multittude-java-projects.jpg',
+         'image'           => 'images/data-structures.webp',
          'imageAltText'    => '',
          'style'           => 'greetingCard',
          'link'            => 'https://github.com/Richardaeld/Multittude-Java-Projects',
@@ -26,7 +26,7 @@ class Cards {
          'logo'            => 'fa-solid fa-memory',
          'year'            => '2023',
          'hackathon'       => 0,
-         'image'           => 'images/multittude-java-projects.jpg',
+         'image'           => 'images/programming-II.webp',
          'imageAltText'    => '',
          'style'           => 'greetingCard',
          'link'            => 'https://github.com/Richardaeld/Multittude-Java-Projects',
@@ -57,7 +57,7 @@ class Cards {
          'year'            => '2021',
          'hackathon'       => 1,
          'image'           => 'images/spinning-wheel.jpg',
-         'imageAltText'    => 'An image of a spinning wheelchair.',
+         'imageAltText'    => 'An image of the spinning wheelchair app.',
          'style'           => 'greetingCard',
          'link'            => 'https://richardaeld.github.io/Hackathaon-trust-in-soda-team-2/',
          'description'     => '3rd place hackathon project at code Institutes\'s "Trust in SODA" 2021 event.',
@@ -72,7 +72,7 @@ class Cards {
          'year'            => '2022',
          'hackathon'       => 0,
          'image'           => 'images/dm-tool.jpg',
-         'imageAltText'    => '',
+         'imageAltText'    => 'An image of the dm-tool app.',
          'style'           => 'greetingCard',
          'link'            => 'https://richardaeld.github.io/digital-map/',
          'description'     => 'A project for quick references for D&D 5e',
@@ -87,7 +87,7 @@ class Cards {
          'year'            => '2021',
          'hackathon'       => 0,
          'image'           => 'images/fat-raccoon.jpg',
-         'imageAltText'    => '',
+         'imageAltText'    => 'An image of the fat raccoon recipe site.',
          'style'           => 'greetingCard',
          'link'            => 'https://richardaeld.github.io/fat-raccoon/',
          'description'     => 'A recipe app that allows users to create, edit, and share recipes.',
@@ -117,7 +117,7 @@ class Cards {
          'year'            => '2021',
          'hackathon'       => 0,
          'image'           => 'images/romancing-the-cards.jpg',
-         'imageAltText'    => '',
+         'imageAltText'    => 'An image of a Romancing the Cards game.',
          'style'           => 'greetingCard',
          'link'            => 'https://richardaeld.github.io/google_translate_game/',
          'description'     => 'A memory matching game with multiple languages and themes.',
@@ -181,9 +181,7 @@ class Cards {
             <div>
                <img src="" alt="">
                <div>
-                  <div>
-                     <!-- <span>logo</span> -->
-                  </div>
+                  <div></div>
                   <div>
                      <p>
                         <span></span>
