@@ -3,8 +3,9 @@ class Header {
    const NAV_LINKS = [
       'Home',
       'About',
-      'Services',
-      'Contact'
+      // 'Services',
+      // 'Contact'
+      'Resume',
    ];
 
    const STYLES = [
@@ -117,7 +118,7 @@ HTML,
    </div>
    <?=self::displayNavLinks()?>
    <div id="switcher">
-      switcher
+      <!-- switcher -->
    </div>
 </header>
 <?=self::SCRIPTS['switcher']?>
