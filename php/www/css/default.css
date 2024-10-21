@@ -63,6 +63,14 @@ body {
 /* ===================== */
 /* Body */
 /* ===================== */
+.header-text {
+   /* text-shadow: */
+      /* -1px -1px 1px var(--tertiary),
+       1px  1px 0px var(--secondary),
+       1px  1px 1px rgba(0, 0, 0, .75)!important; */
+       /* 3px  3px     rgba(0, 0, 0, 0.452)!important; */
+}
+
 
 /* ===================== */
 /* Cards */
@@ -514,38 +522,24 @@ body {
 .details-card > div {
    padding: .5em;
 }
-
-
-
+.details-card-links {
+   transition-duration: 1s;
+   margin-top: 2em;
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   justify-content: space-evenly;
+}
 
 /* animation */
-@keyframes scaleDown {
-   0% {
-      /* opacity: 1; */
-      clip-path: inset(0);
-   }
-   25% {
-      /* opacity: 0; */
-   }
-   50% {
-      clip-path: inset(0 100% 0 0);
-      /* opacity: 0; */
-   }
-   75% {
-   }
-   100% {
-      /* clip-path: inset(0 0% 0 100%); */
-      /* opacity: 1; */
-      clip-path: inset(0);
-   }
+@keyframes animationWipe {
+   0%   { clip-path: inset(0);          }
+   50%  { clip-path: inset(0 100% 0 0); }
+   100% { clip-path: inset(0);          }
 }
-.animate {
-   animation: scaleDown 1s forwards; /* Apply animation */
+.transitionWipe {
+   animation: animationWipe 1s forwards;
 }
-/* .details-card.animate::before {
-   animation: scaleDown 1s forwards;
-} */
-
 
 /* ===================== */
 /* Project icons */
@@ -556,7 +550,6 @@ body {
    background-color: rgb(202, 22, 94);
    color: rgb(255, 254, 252);
    padding: 0 .2em;
-   /* margin-right: 3px; */
    font-size: 3.5rem;
 }
 
