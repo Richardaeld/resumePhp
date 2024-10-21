@@ -77,7 +77,8 @@ class Cards {
          'link'            => 'https://richardaeld.github.io/digital-map/',
          'description'     => 'A project for quick references for D&D 5e',
          'descriptionLong' => 'This PERN project is JavaScript-powered and exists as two separate deployments. The back-end deployment is a RESTful API, and the front-end deployment is a user-facing React.js app. This application is for any Dungeons and Dragons (D&D) 5e fans and can be utilized as a quick way to look up spells, roll digital dice, or view other frequently used table content. As a bonus, the RESTful API allows admins to easily create new tables and expand upon existing content.',
-         'stack'           => ['Docker', 'PostgreSQL', 'Knex.js', 'React', 'Express', 'Node', 'JavaScript', 'Bootstrap', 'HTML/CSS'],
+         'stack'           => ['PostgreSQL', 'Knex.js', 'React', 'Express', 'Node', 'JavaScript', 'Bootstrap', 'HTML/CSS'],
+         // 'stack'           => ['Docker', 'PostgreSQL', 'Knex.js', 'React', 'Express', 'Node', 'JavaScript', 'Bootstrap', 'HTML/CSS'],
          'repo'            => ['https://github.com/Richardaeld/dm_tool_api', 'https://github.com/Richardaeld/DND_Into_The_Abyss'],
          'app'             => '',
          'awards'          => '',
@@ -92,7 +93,8 @@ class Cards {
          'link'            => 'https://richardaeld.github.io/fat-raccoon/',
          'description'     => 'A recipe app that allows users to create, edit, and share recipes.',
          'descriptionLong' => ' The Fat Raccoon was designed to facilitate a home cooking community for the accumulation and sharing of family recipes. This application allows its users to create an account, which will track your previously viewed recipes, favorites, and uploaded recipes. It also allows for multiple ways to search for recipes and when you\'ve selected a recipe you want to cook it provides a cross-out function for the steps and ingredients you\'ve completed and used. This application leverages the flexibility of MongoDB\'s NoSQL database and Flask\'s minimal framework to allow for a truly custom and unique application. ',
-         'stack'           => ['Docker', 'Python', 'Flask', 'MongoDB', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'Github'],
+         'stack'           => ['Python', 'Flask', 'MongoDB', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'Github'],
+         // 'stack'           => ['Docker', 'Python', 'Flask', 'MongoDB', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'Github'],
          'repo'            => ['https://github.com/Richardaeld/Fat_Racoon_Kitchen'],
          'app'             => '',
          'awards'          => 'This project received a Merit for going above and beyond class requirements.',
@@ -107,7 +109,8 @@ class Cards {
          'link'            => 'https://eldridgembemporium.com/',
          'description'     => 'An ecommerce bookstore app that allows inventory management and secure checkout.',
          'descriptionLong' => ' Eldridge Music Book Emporium is an e-commerce bookstore application that is Django-powered and hosts several interactive functions that are modeled after modern e-commerce sites, such as: notifying users whenever a change has been made to their cart, retaining a purchase history, remembering a user\'s delivery address, and allowing users to rate products. To create a safe and secure checkout method, this application incorporates Stripe\'s API. ',
-         'stack'           => ['Docker', 'Python', 'Django', 'PostgreSQL', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'AWS', 'Stripe'],
+         'stack'           => ['Python', 'Django', 'PostgreSQL', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'AWS', 'Stripe'],
+         // 'stack'           => ['Docker', 'Python', 'Django', 'PostgreSQL', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'AWS', 'Stripe'],
          'repo'            => ['https://github.com/Richardaeld/Eldridge_Music'],
          'app'             => '',
          'awards'          => 'This project received a Merit for going above and beyond class requirements.',
@@ -280,7 +283,7 @@ class Cards {
       // console.log(card.querySelector('div:nth-child(3)'))
 
       updateModal(`.greeting-card img[data-greeting-card-img="${card.dataset.greetingCardName}"]`);
-      // card.addEventListener('mouseover', openGreetingCard);
+      card.addEventListener('mouseover', openGreetingCard);
       // card.addEventListener('mouseout',  closeGreetingCard);
       card.addEventListener('click',     toggleGreetingCard);
       // @ Add event to opened greeting card layer 3
