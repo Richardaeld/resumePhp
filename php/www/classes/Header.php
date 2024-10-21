@@ -27,6 +27,10 @@ header > * {
 }
 
 header {
+   position: fixed;
+   top:0;
+   width:100%;
+   z-index: 11;
    background-color: var(--primary);
    padding: 1.25em;
    text-align: center;

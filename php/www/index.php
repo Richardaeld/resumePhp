@@ -33,13 +33,14 @@ spl_autoload_register(function ($class) {
       <div id="caption"></div>
     </div>
 
+   <div class="cards-container">
+      <div class="cards">
+         <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
+      </div>
 
-   <div class="cards">
-      <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
-   </div>
-
-   <div class="cards">
-      <?=Cards::detailsCard(Cards::GREETING_CARDS)?>
+      <div class="cards">
+         <?=Cards::detailsCard(Cards::GREETING_CARDS)?>
+      </div>
    </div>
 
 </body>

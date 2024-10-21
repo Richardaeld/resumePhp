@@ -172,9 +172,9 @@ class Cards {
    </div>
 
    <div>
-      <?php if (!empty($values['repo'])) { foreach ($values['repo'] as $link) {?><span class="fancy-link"><a href="<?=$link?>">Repo</a></span><?php          }} ?>
-      <?php if (!empty($values['app']))                                       {?><span class="fancy-link"><a href="<?=$values['app']?>">App</a></span><?php   } ?>
-      <span class="fancy-link" onclick="selectDetailsCard(event)" ><a href="#detailsCard" data-card-name="<?=$name?>">Details</a></span>
+      <?php if (!empty($values['repo'])) { foreach ($values['repo'] as $link) {?><a class="fancy-link" href="<?=$link?>">Repo</a><?php          }} ?>
+      <?php if (!empty($values['app']))                                       {?><a class="fancy-link" href="<?=$values['app']?>">App</a><?php   } ?>
+      <a class="fancy-link" onclick="selectDetailsCard(event)" href="#detailsCard" data-card-name="<?=$name?>">Details</a>
    </div>
 
 </div><?php
@@ -218,7 +218,7 @@ class Cards {
    </div>
    <!-- project links -->
    <div class="details-card-links">
-      <span class="fancy-link"><a href="<?=$values['app']?>">App</a></span>
+      <a class="fancy-link" href="<?=$values['app']?>">App</a>
    </div>
 </div>
 <script>

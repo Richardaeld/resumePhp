@@ -48,7 +48,7 @@
 
 body {
    padding: 0;
-   margin: 0;
+   margin: 10em 0 0 0;
    background-color: var(--background);
    color: var(--color-dark-background);
    font-family: "ubuntu mono", sans-serif;
@@ -80,7 +80,7 @@ body {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   justify-content: space-around;
+   justify-content: space-evenly;
    margin: 3em;
 }
 .greeting-card-container,
@@ -92,7 +92,16 @@ body {
    flex-direction: column;
    align-items: end;
 }
+.cards-container {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+.cards-container > div:first-child {
+   max-width: 300em;
 
+}
 /* ===================== */
 /* Greeting card */
 /* Animation and color */
