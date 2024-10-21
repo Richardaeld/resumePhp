@@ -595,15 +595,24 @@ body {
 /* ===================== */
 /* Project icons */
 /* ===================== */
-.smitten {
+/* .smitten {
    border: 2px solid rgb(202, 22, 94);
    border-radius: 5px;
    background-color: rgb(202, 22, 94);
    color: rgb(255, 254, 252);
    padding: 0 .2em;
    font-size: 3.5rem;
+} */
+ .smitten,
+.spinning-wheelchairs,
+.romancing-the-cards,
+.dm-tool,
+.fat-raccoon,
+.eldridge-mb-emporium,
+.multittude-java-projects {
+   font-size: 3em;
+   color: var(--color-dark-background);
 }
-
 
 /* ===================== */
 /* Footer */

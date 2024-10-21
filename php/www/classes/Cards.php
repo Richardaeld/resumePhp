@@ -8,7 +8,8 @@ class Cards {
 
    const GREETING_CARDS  = [
       'Smitten (Hackathon)' => [
-         'logo'            => '<span class="smitten">S</span>',
+         // 'logo'            => '<span class="smitten">S</span>',
+         'logo'            => '<span class="smitten"><i class="fa-regular fa-heart"></i></span>',
          'image'           => 'images/smitten1.jpg',
          'imageAltText'    => 'An image of the smitten game being played.',
          'style'           => 'greetingCard',
@@ -22,7 +23,7 @@ class Cards {
          'awards'          => "1st place in Code Institute's, \"Love is in the Air\" hackathon. ",
       ],
       'Spinning Wheelchairs (Hackathon)' => [
-         'logo'            => '<span class="spinning-wheelchairs">SWC</span>',
+         'logo'            => '<span class="spinning-wheelchairs"><i class="fa-solid fa-wheelchair"></i></span>',
          'image'           => 'images/spinning-wheel.jpg',
          'imageAltText'    => 'An image of a spinning wheelchair.',
          'style'           => 'greetingCard',
@@ -36,7 +37,7 @@ class Cards {
          'awards'          => "3rd place in Code Institute's, \"Trust in SODA 2021\" hackathon.",
       ],
       'Romancing the Cards' => [
-         'logo'            => '<span class="romancing-cards">RC</span>',
+         'logo'            => '<span class="romancing-the-cards"><i class="fa-solid fa-brain"></i></span>',
          'image'           => 'images/romancing-the-cards.jpg',
          'imageAltText'    => '',
          'style'           => 'greetingCard',
@@ -50,7 +51,7 @@ class Cards {
          'awards'          => '',
       ],
       'DM Tool' => [
-         'logo'            => '<span class="dm-tool">DM</span>',
+         'logo'            => '<span class="dm-tool"><i class="fa-brands fa-d-and-d"></i></span>',
          'image'           => 'images/dm-tool.jpg',
          'imageAltText'    => '',
          'style'           => 'greetingCard',
@@ -64,7 +65,7 @@ class Cards {
          'awards'          => '',
       ],
       'Fat Raccoon' => [
-         'logo'            => '<span class="fat-raccoon">FR</span>',
+         'logo'            => '<span class="fat-raccoon"><i class="fa-solid fa-carrot"></i></span>',
          'image'           => 'images/fat-raccoon.jpg',
          'imageAltText'    => '',
          'style'           => 'greetingCard',
@@ -78,7 +79,7 @@ class Cards {
          'awards'          => 'This project received a Merit for going above and beyond class requirements.',
       ],
       'Eldridge M.B. Emporium' => [
-         'logo'            => '<span class="eldridge-mb-emporium">EME</span>',
+         'logo'            => '<span class="eldridge-mb-emporium"><i class="fa-solid fa-book"></i></span>',
          'image'           => 'images/eldridge-music.jpg',
          'imageAltText'    => 'An image of a Eldridge M.B. Emporium.',
          'style'           => 'greetingCard',
@@ -92,7 +93,7 @@ class Cards {
          'awards'          => 'This project received a Merit for going above and beyond class requirements.',
       ],
       'Java Projects From Programming II' => [
-         'logo'            => '<span class="multittude-java-projects">MJP</span>',
+         'logo'            => '<span class="multittude-java-projects"><i class="fa-solid fa-memory"></i></span>',
          'image'           => 'images/multittude-java-projects.jpg',
          'imageAltText'    => '',
          'style'           => 'greetingCard',
@@ -106,7 +107,7 @@ class Cards {
          'awards'          => '',
       ],
       'Java Projects From Data Structures' => [
-         'logo'            => '<span class="multittude-java-projects">MJP</span>',
+         'logo'            => '<span class="multittude-java-projects"><i class="fa-solid fa-memory"></i></span>',
          'image'           => 'images/multittude-java-projects.jpg',
          'imageAltText'    => '',
          'style'           => 'greetingCard',
@@ -158,13 +159,18 @@ class Cards {
    </div>
 
 </div><?php
-break;
+// break;
       }
    }
 
 
    static function detailsCard (array $cards) : void { ?>
 <div>
+<span>
+   <i class="fa-solid fa-wheelchair"></i>
+   <i class="fas fa-heart"></i>
+
+</span>
    <div class="details-card-container">
       <div class="details-card">
          <div>
@@ -210,8 +216,8 @@ break;
       target            = document.querySelector('.details-card-container'),
       detailCardButtons = document.querySelectorAll('.details-card-container div[data-card-name]');
 
+   //  @ Create common elements easily and add attributes
    function createEl(tag, attributes = {}, children = []) {
-      // Create the element using the specified tag
       const element = document.createElement(tag);
 
       // Assign the provided attributes to the element
@@ -225,12 +231,11 @@ break;
             // Otherwise, assume it's a node and append it directly
             : element.appendChild(child);
       });
+      return element;
+   }
 
-    return element;
-}
-
-
-   // @ Update the details card
+   //  @ =========
+   //  @ ========= Update the details card
    function updateName        (card) { target.querySelector('h3').textContent            = card;                          }
    function updateImage       (card) {
       target.querySelector('div img').src               = cards[card]['image'];
