@@ -399,8 +399,10 @@ inset -0px -1px 3px 0px rgba(255, 255, 255, 0.4); */
 }
 .details-card-container > div:last-child > div.selected {
    margin-left:0;
-   background-color: var(--primary);
-   color: var(--color-dark-background);
+      background-color: var(--card-background-color-foreground);
+   color: var(--color-light-background);
+   /* background-color: var(--primary); */
+   /* color: var(--color-dark-background); */
    box-shadow:
       1px  0px 3px 0px rgba(255, 255, 255, 0.74),
       0px  0px 0px 0px rgba(255, 255, 255, 0.74),
@@ -421,8 +423,10 @@ inset -0px -1px 3px 0px rgba(255, 255, 255, 0.4); */
    position: relative;
    cursor: pointer;
    margin: .75em;
-   background-color: var(--card-background-color-foreground);
-   color: var(--color-light-background);
+   background-color: var(--primary);
+   color: var(--color-dark-background);
+   /* background-color: var(--card-background-color-foreground);
+   color: var(--color-light-background); */
    padding: .2em .5em;
    border-radius: 10px;
    box-shadow:
