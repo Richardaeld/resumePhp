@@ -1,11 +1,13 @@
 <?php
 class Header {
    const NAV_LINKS = [
-      'Home',
-      'About',
+      'Home'            => '#',
+      'Project Details' => '#detailsCardContainer',
+      'Resume'          => 'images/richard_eldridge_resume.pdf',
+      // 'About',
       // 'Services',
       // 'Contact'
-      'Resume',
+      // 'Resume',
    ];
 
    const STYLES = [
@@ -109,6 +111,18 @@ const SCRIPTS = [
    });
 </script>
 HTML,
+
+   'scrollToTop' =>
+   <<<HTML
+   <script>
+   document.querySelector('nav[data-header-link-name="Home"]').onclick = function() {
+      window.scrollTo({
+         top: 0,
+         behavior: 'smooth' // This makes the scroll smooth
+      });
+   };
+</script>
+HTML,
 ];
 
    static function displayHeader () : void { ?>
@@ -121,11 +135,11 @@ HTML,
       </span>
    </div>
    <?=self::displayNavLinks()?>
-   <div id="switcher">
-      <!-- switcher -->
-   </div>
+   <!-- <div id="switcher"> -->
+      <div></div>
 </header>
 <?=self::SCRIPTS['switcher']?>
+<?=self::SCRIPTS['scrollToTop']?>
 <?php
    }
 
@@ -133,11 +147,12 @@ HTML,
    static function DisplayNavLinks () :void { ?>
 <nav>
    <ul>
-      <?php foreach (self::NAV_LINKS as $link) { ?>
-         <li><a href='#'><?=$link?></a></li>
+      <?php foreach (self::NAV_LINKS as $name => $link) { ?>
+         <li><a href='<?=$link?>' data-header-link-name="<?=$name?>"><?=$name?></a></li>
       <?php } ?>
    </ul>
-</nav><?php
+</nav>
+<?php
    }
 
 

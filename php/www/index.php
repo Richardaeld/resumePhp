@@ -23,6 +23,7 @@ spl_autoload_register(function ($class) {
    <title>Resume</title>
 </head>
 
+<div ></div>
 <?=Header::displayHeader()?>
 
 <body class="dark-mode">

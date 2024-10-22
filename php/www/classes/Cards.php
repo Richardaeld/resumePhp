@@ -184,7 +184,7 @@ class Cards {
 
    static function detailsCard (array $cards) : void { ?>
 <div>
-   <div class="details-card-container">
+   <div id="detailsCardContainer" class="details-card-container">
       <div id="detailsCard" class="details-card">
          <div>
             <h3 class="header-text">name</h3>
