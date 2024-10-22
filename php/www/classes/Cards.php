@@ -8,7 +8,7 @@ class Cards {
 
    const GREETING_CARDS  = [
       'Java From Data Structures' => [
-         'logo'            => 'fa-solid fa-memory',
+         'logo'            => 'fa-brands fa-java',
          'year'            => '2024',
          'hackathon'       => 0,
          'image'           => 'images/data-structures.webp',
@@ -22,7 +22,7 @@ class Cards {
          'awards'          => '',
       ],
       'Java From Programming II' => [
-         'logo'            => 'fa-solid fa-memory',
+         'logo'            => 'fa-brands fa-java',
          'year'            => '2023',
          'hackathon'       => 0,
          'image'           => 'images/programming-II.webp',
@@ -93,7 +93,7 @@ class Cards {
          'awards'          => '',
       ],
       'Fat Raccoon' => [
-         'logo'            => 'fa-solid fa-carrot',
+         'logo'            => 'fa-solid fa-utensils',
          'year'            => '2021',
          'hackathon'       => 0,
          'image'           => 'images/fat-raccoon.jpg',
@@ -123,7 +123,7 @@ class Cards {
          'awards'          => 'This project received a Merit for going above and beyond class requirements.',
       ],
       'Romancing the Cards' => [
-         'logo'            => 'fa-solid fa-brain',
+         'logo'            => 'fa-regular fa-chess-pawn',
          'year'            => '2021',
          'hackathon'       => 0,
          'image'           => 'images/romancing-the-cards.jpg',
@@ -271,13 +271,25 @@ class Cards {
    // @ =============
    const greetingCards = document.querySelectorAll('.greeting-card');
 
-   function openGreetingCard   (event) { setTimeout(() => event.target.closest('.greeting-card').classList.add('open'),   250); }
-   function toggleGreetingCard (event) { event.target.closest('.greeting-card').classList.toggle('open'); }
-   function closeGreetingCard  (event) { event.target.closest('.greeting-card').classList.remove('open'); }
+   function openGreetingCard   (event) {
+      setTimeout(() => {
+         event.target.closest('.greeting-card').classList.add('open')
+         event.target.closest('.greeting-card-container').classList.add('open')
+      },   250);
+   }
+   function toggleGreetingCard (event) {
+      event.target.closest('.greeting-card').classList.toggle('open');
+      event.target.closest('.greeting-card-container').classList.toggle('open');
+   }
+   function closeGreetingCard  (event) {
+      event.target.closest('.greeting-card').classList.remove('open');
+      event.target.closest('.greeting-card-container').classList.remove('open');
+   }
 
    greetingCards.forEach((card, index) => {
       setTimeout(() => {
          card.classList.add('open')
+         card.closest('.greeting-card-container').classList.add('open');
       }, 1000 * (index+1));
    });
 
@@ -285,11 +297,8 @@ class Cards {
    // @ Event Handlers
    // @ =============
    greetingCards.forEach(card => {
-
-      // console.log(card.querySelector('div:nth-child(3)'))
-
       updateModal(`.greeting-card img[data-greeting-card-img="${card.dataset.greetingCardName}"]`);
-      card.addEventListener('mouseover', openGreetingCard);
+      // card.addEventListener('mouseover', openGreetingCard);
       // card.addEventListener('mouseout',  closeGreetingCard);
       card.addEventListener('click',     toggleGreetingCard);
       // @ Add event to opened greeting card layer 3

@@ -71,25 +71,36 @@ header nav ul {
 }
 
 /* Logo config */
+/* Name */
 header div:first-child {
    text-align: left;
    display: flex;
    flex-direction: column;
+   font-size: 1.5em;
+   /* font-family: "montserrat", sans-serif; */
+   font-family: "Varela Round";
+   font-weight: 600;
+
 }
+/* Job Description */
 header div:first-child span {
-   font-family: "ubuntu mono", sans-serif;
+   font-family: "Roboto";
+   font-weight: 400;
+   /* font-family: "ubuntu mono", sans-serif; */
    /* font-family: "tilt warp", sans-serif; */
-   font-size: 1.25em;
+   font-size: 1em;
 }
 
 
 /* Nav config */
 header nav ul {
+   font-size:1.5em;
    font-family: "Anton SC", sans-serif;
    justify-content: space-around;
    width: 100%;
-   margin-left: 2.5em;
    padding-left: 2.5em;
+   margin-top:.5em;
+   margin-bottom:.5em;
 }
 
 header nav {
