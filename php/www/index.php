@@ -17,6 +17,7 @@ spl_autoload_register(function ($class) {
    <!-- <meta http-equiv="refresh" content="<?=$sec?>;URL='<?=$page?>'"> -->
    <link rel="stylesheet" href="css/default.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="icon" href="images/cv-favicon.jpg" type="image/x-icon">
 
    <!-- <script src="https://kit.fontawesome.com/377083d8a9.js" crossorigin="anonymous"></script> -->
    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
