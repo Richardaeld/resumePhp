@@ -131,17 +131,24 @@ header nav.activeBurger {
    header nav {
       width:100%;
       position: fixed;
-      top: 3em;
-      right: -100vh;
+      top: 5em;
+      right: -200vh;
       background: var(--primary);
-      transition: 1s ease;
+      transition: .75s ease;
    }
    header nav ul {
       display: flex;
       flex-direction: column;
    }
    header nav ul li {
-      font-size: .5em;
+      font-size: 1em;
+      margin-bottom:.5em;
+   }
+   header div:first-child {
+      font-size: 1em;
+   }
+   header div:first-child span {
+      font-size: .9em;
    }
 }
 @media (max-width: 480px) {
