@@ -100,8 +100,9 @@ body {
    flex-direction: column;
    align-items: end;
 }
-@media (max-width: 1024px) {
-/* @media (max-width: 768px) { */
+/* @media (max-width: 1024px) { */
+/* @media (max-width: 1024px) { */
+@media (max-width: 768px) {
    .greeting-card-container {
       width: calc(50%);
    }
