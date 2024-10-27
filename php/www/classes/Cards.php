@@ -165,7 +165,7 @@ class Cards {
          <div>
             <p>
                <?=$values['description']?><br><br>
-               <b>Stack:</b> <br><?=implode(', ',$values['stack'])?>
+               <b>Stack</b> <br><?=implode(', ',$values['stack'])?>
             </p>
          </div>
       </div>
@@ -201,7 +201,7 @@ class Cards {
                         <span></span>
                      </p>
                      <p>
-                        <b>Stack Used</b><br/>
+                        <b>Stack</b><br/>
                         <span></span>
                      </p>
                   </div>
@@ -226,22 +226,18 @@ class Cards {
    // @ General Helper functions
    // @ =============
    // @ Create common elements easily and add attributes
-   function createEl(tag, attributes = {}, children = []) {
-      const element = document.createElement(tag);
-
-      // Assign the provided attributes to the element
-      for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, value);
-
-      // Append child elements if any
-      Array.from(children).forEach(child => {
-         (typeof child === 'string')
-            // If the child is a string, create a text node
-            ? element.appendChild(document.createTextNode(child))
-            // Otherwise, assume it's a node and append it directly
-            : element.appendChild(child);
-      });
-      return element;
+   function createEl (typeElement, attributes = null) {
+      const el = document.createElement(typeElement);
+      if (attributes !== null) {
+         for (const [key, value] of Object.entries(attributes)) {
+            (key.includes('data'))
+               ? el.dataset[key.replace('data-', '')] = value
+               : el[key] = value;
+         }
+      }
+      return el;
    }
+
 
    function updateModal (imageSelector) {
       const
@@ -335,13 +331,17 @@ class Cards {
    function updateAwards      (card) {
       const funcTarget = target.querySelector('p:nth-child(2)');
       funcTarget.style.display = (cards[card]['awards'] == '') ? 'none' : 'block' ;
-      funcTarget.querySelector('span').textContent = cards[card]['awards'];
+      funcTarget.querySelector('span').innerHTML = '';
+
+      funcTarget.querySelector('span')
+         .appendChild(createEl('ul'))
+         .appendChild(createEl('li', { textContent: cards[card]['awards'] }));
    }
 
    function updateStack       (card) {
       const ul = createEl('ul');
       cards[card]['stack'].forEach(stack => {
-         const li = createEl('li', {}, stack);
+         const li = createEl('li', { textContent: stack });
          ul.appendChild(li);
       });
       target.querySelector('p:last-child span').innerHTML = '';
@@ -354,7 +354,7 @@ class Cards {
 
       // @ Repo(s)
       Array.from(cards[card]['repo']).forEach(repo => {
-         const span = createEl('span', { class: 'fancy-link' });
+         const span = createEl('span', { classList: 'fancy-link' });
          const a = createEl('a', { href: repo });
          a.textContent = 'Repo';
          span.appendChild(a);
@@ -363,7 +363,7 @@ class Cards {
 
       // @ App
       if (cards[card]['app'] !== '') {
-         const span = createEl('span', { class: 'fancy-link' });
+         const span = createEl('span', { classList: 'fancy-link' });
          const a = createEl('a', { href: cards[card]['app'] });
          a.textContent = 'App';
          span.appendChild(a);

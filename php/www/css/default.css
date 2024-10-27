@@ -452,7 +452,7 @@ body {
 }
 .details-card-container > div:last-child > div.selected {
    margin-left:0;
-      background-color: var(--card-background-color-foreground);
+   background-color: var(--card-background-color-foreground);
    color: var(--color-light-background);
    /* background-color: var(--primary); */
    /* color: var(--color-dark-background); */
@@ -560,6 +560,10 @@ body {
 .details-card div p:nth-child(2) {
    margin-top: 2em;
 }
+.details-card div p:nth-child(2) ul li {
+   list-style-type: none;
+   margin-left: 0;
+}
 .details-card div p ul {
    display: flex;
    flex-direction: row;
@@ -576,8 +580,6 @@ body {
 .details-card > div > div > div:last-child {
    display: flex;
    flex-direction: column;
-   /* justify-content: space-between; */
-   /* align-self: center; */
    align-items: center;
 }
 
@@ -612,6 +614,95 @@ body {
 .transitionWipe {
    animation: animationWipe 1s forwards;
 }
+
+
+
+
+
+
+@media (max-width: 1920px) {
+
+}
+
+@media (max-width: 1280px) {
+
+   /* centers details card */
+   .cards-container .cards:last-child > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;   }
+
+
+   /*  */
+   .details-card > div > div {
+      flex-direction: column;
+      justify-items: center;
+   }
+   /* stack image and text */
+   .details-card-container  {
+      flex-direction: column;
+      justify-content: center;
+      align-items:center;
+
+      width: 90%;
+   }
+   .details-card {
+      width:100%;
+      max-height: fit-content;
+   }
+   /* center image */
+   .details-card img {
+      margin: auto;
+   }
+   /* space betweeen image and text */
+   .details-card > div > div > div:last-child {
+      margin-top: 1.5em;
+   }
+   .details-card div p {
+      height: fit-content;
+      max-height: fit-content;
+   }
+   .details-card div p:nth-child(2) {
+      margin-left: 0em;
+   }
+   .details-card div p:nth-child(2) b {
+      margin-top: 0em;
+   }
+   .details-card div p:nth-child(2) span {
+      transform: translateX(2em);
+   }
+   .details-card div p:nth-child(3) {
+      margin-top: 1em;
+      margin-left: 0;
+   }
+   /* fix fancy links */
+   .details-card-container div:last-child {
+      margin-left:1em;
+      margin-right:1em;
+   }
+   .details-card-container > div:last-child > div.selected,
+   .details-card-container > div:last-child > div.selected::before,
+   .details-card-container > div:last-child > div.selected:hover {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+   }
+   .details-card-container > div:last-child > div.selected {
+      margin-left: .75em;
+   }
+
+}
+
+@media (max-width: 480px) {
+
+}
+
+
+
+
+
+
+
+
 
 
 /* popout image modal */
