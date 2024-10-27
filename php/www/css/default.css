@@ -440,7 +440,7 @@ body {
 }
 
 @media (max-width: 1920px) {
-   .greeting-card.open > div:nth-child(3) p {
+   .greeting-card > div:nth-child(3) p {
       font-size: .9em;
    }
 }
@@ -455,7 +455,7 @@ body {
       .greeting-card-container {
          width: calc(50%);
       }
-      .greeting-card.open > div:nth-child(3) p {
+      .greeting-card > div:nth-child(3) p {
          font-size: .8em;
       }
    }
@@ -469,7 +469,7 @@ body {
          width: calc(100%);
       }
 
-      .greeting-card.open > div:nth-child(3) p {
+      .greeting-card > div:nth-child(3) p {
          font-size: .7em;
       }
    }

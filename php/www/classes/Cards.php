@@ -212,7 +212,6 @@ class Cards {
       <div>
          <!-- project buttons -->
          <?php foreach ($cards as $name => $values) {?>
-            <!-- href="#detailsCard" -->
             <div data-card-name="<?=$name?>" onclick="scrollToDetailsCardTop()"><?=$name?></div>
          <?php } ?>
       </div>
