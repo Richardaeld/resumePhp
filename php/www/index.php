@@ -49,6 +49,10 @@ spl_autoload_register(function ($class) {
 
 <?=Footer::displayFooter()?>
 
+
+<?=Header::SCRIPTS['switcher']?>
+<?=Header::SCRIPTS['scrollToTop']?>
+<?=Header::SCRIPTS['burgerMenu']?>
 <script>
 
 

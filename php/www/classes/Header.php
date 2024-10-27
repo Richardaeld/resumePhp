@@ -107,6 +107,57 @@ header nav {
    justify-content: center;
 
 }
+
+/* Burger nav responsiveness */
+.burger {
+   display:none;
+   cursor: pointer;
+   font-size: 2em;
+}
+
+
+
+header nav.activeBurger {
+   right:0px;
+}
+
+@media (max-width: 1920px) {
+
+}
+@media (max-width: 1280px) {
+   .burger {
+      display: block;
+   }
+   header nav {
+      width:100%;
+      position: fixed;
+      top: 3em;
+      right: -100vh;
+      background: var(--primary);
+      transition: 1s ease;
+   }
+   header nav ul {
+      display: flex;
+      flex-direction: column;
+   }
+   header nav ul li {
+      font-size: .5em;
+   }
+}
+@media (max-width: 480px) {
+   header {
+      padding: .5em;
+   }
+   header div:first-child {
+      font-size: .55em;
+
+   }
+   header div:first-child span {
+      font-size: .5em;
+   }
+}
+
+
 </style>
 HTML,
    ];
@@ -115,23 +166,41 @@ const SCRIPTS = [
    'switcher' =>
       <<<HTML
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('#switcher').addEventListener('click', function() {
-         document.body.classList.toggle('dark-mode');
-      })
-   });
+   // document.addEventListener('DOMContentLoaded', function() {
+   //    document.querySelector('#switcher').addEventListener('click', function() {
+   //       document.body.classList.toggle('dark-mode');
+   //    })
+   // });
 </script>
 HTML,
 
    'scrollToTop' =>
-   <<<HTML
-   <script>
-   document.querySelector('nav[data-header-link-name="Home"]').onclick = function() {
-      window.scrollTo({
-         top: 0,
-         behavior: 'smooth' // This makes the scroll smooth
+      <<<HTML
+<script>
+   // document.addEventListener('DOMContentLoaded', function () {
+   //    document.querySelector('nav[data-header-link-name="Home"]').addEventListener('click', function() {
+   //       window.scrollTo({
+   //          top: 0,
+   //          behavior: 'smooth'
+   //       });
+   //    });
+   // });
+</script>
+HTML,
+
+   'burgerMenu' =>
+      <<<HTML
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('header nav');
+      console.log('click', nav)
+
+      menuToggle.addEventListener('click', function () {
+         console.log('click', nav)
+         nav.classList.toggle('activeBurger');
       });
-   };
+   });
 </script>
 HTML,
 ];
@@ -148,9 +217,10 @@ HTML,
    <?=self::displayNavLinks()?>
    <!-- <div id="switcher"> -->
       <div></div>
+
+    <div class="menu-toggle burger" id="burger">&#9776;</div>
+      <!-- <button class="menu-toggle" aria-label="Toggle menu">☰</button> -->
 </header>
-<?=self::SCRIPTS['switcher']?>
-<?=self::SCRIPTS['scrollToTop']?>
 <?php
    }
 
