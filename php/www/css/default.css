@@ -459,7 +459,7 @@ body {
          font-size: .8em;
       }
    }
-   
+
    /* Styles for phones */
    @media (max-width: 480px) {
       .cards {
@@ -473,8 +473,6 @@ body {
          font-size: .8em;
       }
    }
-
-
 
 /* ===================== */
 /* details card */

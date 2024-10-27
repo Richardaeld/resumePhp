@@ -174,7 +174,7 @@ class Cards {
    <div>
       <?php if (!empty($values['repo'])) { foreach ($values['repo'] as $link) {?><a class="fancy-link" href="<?=$link?>">Repo</a><?php          }} ?>
       <?php if (!empty($values['app']))                                       {?><a class="fancy-link" href="<?=$values['app']?>">App</a><?php   } ?>
-      <a class="fancy-link" onclick="selectDetailsCard(event)" href="#detailsCard" data-card-name="<?=$name?>">Details</a>
+      <a class="fancy-link" onclick="selectDetailsCard(event); scrollToDetailsCardTop()" data-card-name="<?=$name?>">Details</a>
    </div>
 
 </div><?php
@@ -237,10 +237,24 @@ class Cards {
       }, 10);
 
       setTimeout(() => {
-         const emValue    = 2.5;
-         const fontSize   = parseFloat(getComputedStyle(document.documentElement).fontSize);
-         const pixelValue = emValue * fontSize;
-         window.scrollBy(0, -pixelValue);
+         const headerPixels = document.querySelector('header').clientHeight + 30;
+         // if (windowWidth <= 1280) {
+         //    emValue = 8; console.log('scrollIntoView', 1280)
+         // } else if (windowWidth <= 720) {
+         //    emValue = 4; console.log('scrollIntoView', 1280)
+         // } else if (windowWidth <= 480) {
+         //    emValue = 2; console.log('scrollIntoView', 480);
+         // }
+
+         // console.log('emValue', emValue)
+
+         // const fontSize   = parseFloat(getComputedStyle(document.documentElement).fontSize);
+         // const pixelValue = emValue * fontSize;
+         // window.scrollBy(0, -pixelValue);
+         window.scrollBy(0, -headerPixels);
+
+         console.log('pixelValue', pixelValue)
+
       }, 500);
    }
 
