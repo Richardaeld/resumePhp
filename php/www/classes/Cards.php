@@ -212,7 +212,8 @@ class Cards {
       <div>
          <!-- project buttons -->
          <?php foreach ($cards as $name => $values) {?>
-            <div data-card-name="<?=$name?>"><?=$name?></div>
+            <!-- href="#detailsCard" -->
+            <div data-card-name="<?=$name?>" onclick="scrollToDetailsCardTop()"><?=$name?></div>
          <?php } ?>
       </div>
    </div>
@@ -225,6 +226,21 @@ class Cards {
    // @ =============
    // @ General Helper functions
    // @ =============
+   // @ Navigate to top of detailscard
+   function scrollToDetailsCardTop () {
+
+      setTimeout(() => {
+         document.querySelector('#detailsCard').scrollIntoView({ behavior: 'smooth'});
+      }, 10);
+
+      setTimeout(() => {
+         const emValue    = 2.5;
+         const fontSize   = parseFloat(getComputedStyle(document.documentElement).fontSize);
+         const pixelValue = emValue * fontSize;
+         window.scrollBy(0, -pixelValue);
+      }, 500);
+   }
+
    // @ Create common elements easily and add attributes
    function createEl (typeElement, attributes = null) {
       const el = document.createElement(typeElement);
