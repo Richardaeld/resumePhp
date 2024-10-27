@@ -411,7 +411,7 @@ body {
 /* @media (max-width: 768px) { */
 /* @media (max-width: 768px) { */
       .cards {
-         margin: 2em
+         margin: 1em
       }
       .greeting-card-container {
          width: calc(50%);
@@ -424,7 +424,7 @@ body {
    /* Styles for phones */
    @media (max-width: 480px) {
       .cards {
-         margin: 1em
+         margin: .25em
       }
       .greeting-card-container {
          width: calc(100%);
