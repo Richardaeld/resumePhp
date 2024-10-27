@@ -643,8 +643,9 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items:center;
-
-      width: 90%;
+      margin-left:.75em;
+      margin-right:.75em;
+      /* width: 90%; */
    }
    .details-card {
       width:100%;
@@ -677,8 +678,8 @@ body {
    }
    /* fix fancy links */
    .details-card-container div:last-child {
-      margin-left:1em;
-      margin-right:1em;
+      margin-left:.5em;
+      margin-right:.5em;
    }
    .details-card-container > div:last-child > div.selected,
    .details-card-container > div:last-child > div.selected::before,
