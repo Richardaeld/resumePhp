@@ -228,7 +228,11 @@ class Cards {
    // @ =============
    // @ Navigate to top of detailscard
    function scrollToDetailsCardTop () {
+      const maxWidth = 1280;
+      const windowWidth = window.innerWidth;
+      if (windowWidth > maxWidth) return;
 
+      console.log('      1280px')
       setTimeout(() => {
          document.querySelector('#detailsCard').scrollIntoView({ behavior: 'smooth'});
       }, 10);
