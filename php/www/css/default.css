@@ -92,7 +92,8 @@ body {
 }
 .greeting-card-container,
 .flat-card-container {
-   width: calc(30%);
+   /* width: calc(30%); */
+   width: calc(50%);
    /* width: calc(10%); */
    /* background-color: aqua; */
    background-color: transparent;
@@ -101,8 +102,9 @@ body {
    align-items: end;
 }
 /* @media (max-width: 1024px) { */
-/* @media (max-width: 1024px) { */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+/* @media (max-width: 768px) { */
+/* @media (max-width: 768px) { */
    .greeting-card-container {
       width: calc(50%);
    }
