@@ -233,11 +233,17 @@ class Cards {
 
       console.log('      1280px')
       setTimeout(() => {
-         document.querySelector('#detailsCard').scrollIntoView({ behavior: 'smooth'});
+         document.querySelector('#detailsCard').scrollIntoView({ behavior: 'smooth', block: 'start'});
       }, 10);
 
+      if (windowWidth > maxWidth) return;
+      
       setTimeout(() => {
-         const headerPixels = document.querySelector('header').clientHeight + 30;
+         const element = document.querySelector('#detailsCard');
+         const headerPixels = document.querySelector('header').clientHeight;
+         const rect = document.querySelector('#detailsCard').getBoundingClientRect();
+         // const offset = 10; 
+         const offset = document.querySelector('header').clientHeight + 30;
          // if (windowWidth <= 1280) {
          //    emValue = 8; console.log('scrollIntoView', 1280)
          // } else if (windowWidth <= 720) {
@@ -251,7 +257,20 @@ class Cards {
          // const fontSize   = parseFloat(getComputedStyle(document.documentElement).fontSize);
          // const pixelValue = emValue * fontSize;
          // window.scrollBy(0, -pixelValue);
-         window.scrollBy(0, -headerPixels);
+
+
+         if (rect.top > offset) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Adjust scroll position after the animation
+        setTimeout(() => {
+            window.scrollBy(0, -offset);
+        }, 300); // Adjust timeout based on the duration of the scroll animation
+    } else {
+        // If it's already near the top, just scroll a little
+        window.scrollBy(0, -offset);
+    }
+         // window.scrollBy(0, -headerPixels);
 
          console.log('pixelValue', pixelValue)
 
