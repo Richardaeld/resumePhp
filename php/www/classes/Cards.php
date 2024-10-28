@@ -218,7 +218,7 @@ class Cards {
    </div>
    <!-- project links -->
    <div class="details-card-links">
-      <a class="fancy-link" href="<?=$values['app']?>">App</a>
+      <a class="fancy-link" target="_blank" href="<?=$values['app']?>">App</a>
    </div>
 </div>
 <script>
