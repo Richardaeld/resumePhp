@@ -56,6 +56,10 @@ footer div:first-child {
 footer div p {
    /* font-family: "Anton SC"; */
 }
+footer div a {
+   /* color: var(--color-dark-background); */
+   text-decoration: none;
+}
 footer div a i {
    color:var(--color-dark-background);
    font-size: 2.5rem;
@@ -87,7 +91,7 @@ HTML,
 
    static function displayAuthorSignature () : void { ?>
 <div>
-   <p>&#169; 2022 Richard Eldridge. <span>All rights reserved.</span></p>
+   <p>&#169; 2024 Richard Eldridge. <span>All rights reserved.</span></p>
 </div><?php
    }
 

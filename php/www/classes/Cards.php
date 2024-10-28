@@ -243,7 +243,7 @@ class Cards {
          const headerPixels = document.querySelector('header').clientHeight;
          const rect = document.querySelector('#detailsCard').getBoundingClientRect();
          // const offset = 10; 
-         const offset = document.querySelector('header').clientHeight + 30;
+         const offset = document.querySelector('header').clientHeight;
          // if (windowWidth <= 1280) {
          //    emValue = 8; console.log('scrollIntoView', 1280)
          // } else if (windowWidth <= 720) {
