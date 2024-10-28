@@ -131,7 +131,7 @@ header nav.activeBurger {
    header nav {
       width:100%;
       position: fixed;
-      top: 5em;
+      top: 4em;
       right: -200vh;
       background: var(--primary);
       transition: .75s ease;
@@ -154,6 +154,12 @@ header nav.activeBurger {
 @media (max-width: 480px) {
    header {
       padding: .5em;
+   }
+   header nav {
+      top: 3em;
+   }
+   header nav ul li {
+      font-size: .5em;
    }
    header div:first-child {
       font-size: .55em;
