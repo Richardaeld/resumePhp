@@ -159,14 +159,15 @@ header nav.activeBurger {
       top: 3em;
    }
    header nav ul li {
-      font-size: .5em;
+      font-size: .8em;
    }
    header div:first-child {
-      font-size: .55em;
+      width: 40%;
+      font-size: .9em;
 
    }
    header div:first-child span {
-      font-size: .5em;
+      font-size: .85em;
    }
 }
 
