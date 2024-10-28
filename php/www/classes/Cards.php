@@ -229,7 +229,7 @@ class Cards {
    function scrollToDetailsCardTop () {
       const maxWidth = 1280;
       const windowWidth = window.innerWidth;
-      if (windowWidth > maxWidth) return;
+      // if (windowWidth > maxWidth) return;
 
       console.log('      1280px')
       setTimeout(() => {
