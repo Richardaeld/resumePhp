@@ -67,8 +67,8 @@ header nav,
 header nav ul {
    display: flex;
    flex-direction: row;
-
 }
+
 
 /* Logo config */
 /* Name */
@@ -139,6 +139,8 @@ header nav.activeBurger {
    header nav ul {
       display: flex;
       flex-direction: column;
+      padding-left:0;
+
    }
    header nav ul li {
       font-size: 1em;
