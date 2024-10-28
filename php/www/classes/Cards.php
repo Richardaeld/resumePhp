@@ -172,8 +172,8 @@ class Cards {
    </div>
 
    <div>
-      <?php if (!empty($values['repo'])) { foreach ($values['repo'] as $link) {?><a class="fancy-link" href="<?=$link?>">Repo</a><?php          }} ?>
-      <?php if (!empty($values['app']))                                       {?><a class="fancy-link" href="<?=$values['app']?>">App</a><?php   } ?>
+      <?php if (!empty($values['repo'])) { foreach ($values['repo'] as $link) {?><a class="fancy-link" target="_blank" href="<?=$link?>">Repo</a><?php          }} ?>
+      <?php if (!empty($values['app']))                                       {?><a class="fancy-link" target="_blank" href="<?=$values['app']?>">App</a><?php   } ?>
       <a class="fancy-link" onclick="selectDetailsCard(event); scrollToDetailsCardTop()" data-card-name="<?=$name?>">Details</a>
    </div>
 
