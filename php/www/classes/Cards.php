@@ -315,12 +315,68 @@ class Cards {
       event.target.closest('.greeting-card-container').classList.remove('open');
    }
 
-   greetingCards.forEach((card, index) => {
+   // @ Open one card every second
+   // greetingCards.forEach((card, index) => {
+   document.querySelectorAll('.greeting-card-container:nth-child(-n+3)').forEach((card, index) => {
       setTimeout(() => {
-         card.classList.add('open')
+         // card.classList.add('open')
          card.closest('.greeting-card-container').classList.add('open');
+         card.querySelector('.greeting-card').classList.add('open')
       }, 1000 * (index+1));
    });
+   // @ Open cards as they come into view
+   document.addEventListener("DOMContentLoaded", function () {
+   //  const container = document.querySelector('.cards-container div.cards:first-child .greeting-card-container');
+
+   //  const options = {
+   //      root: null, // use the viewport as the container
+   //      rootMargin: '0px',
+   //      threshold: 0.3 // Trigger when 10% of the container is in view
+   //  };
+
+   //  const observer = new IntersectionObserver((entries) => {
+   //     entries.forEach(entry => {
+   //         console.log('entries', entry)
+   //          if (entry.isIntersecting) {
+   //              entry.target.classList.add('open');
+   //              entry.target.querySelector('.greeting-card').classList.add('open');
+   //          } else {
+   //              entry.target.classList.remove('open');
+   //              entry.target.querySelector('.greeting-card').classList.remove('open');
+   //          }
+   //      });
+   //  }, options);
+
+    greetingCards.forEach(card => {
+      // observer.observe(card) 
+      const handleScroll = () => {
+        const rect = card.getBoundingClientRect();
+
+         // console.log('card', card)
+
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            setTimeout(() => {
+               card.classList.add('open');
+               card.closest('.greeting-card').classList.add('open');
+            }, 500);
+        } else {
+            setTimeout(() => {
+               card.classList.remove('open');
+               card.closest('.greeting-card').classList.remove('open');
+            }, 500);
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+   
+   });
+   //  observer.observe(container);
+
+   // Fallback using scroll event
+   
+
+
+});
 
    // @ =============
    // @ Event Handlers
