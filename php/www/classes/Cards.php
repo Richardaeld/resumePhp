@@ -192,7 +192,7 @@ class Cards {
                <div>
                   <div></div>
                   <div>
-                     <!-- Projet genreal ingo -->
+                     <!-- Projet genreal info -->
                      <p>
                         <span></span>
                      </p>
