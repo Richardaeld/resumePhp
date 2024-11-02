@@ -17,6 +17,7 @@ spl_autoload_register(function ($class) {
    <link rel="stylesheet" href="css/default.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <link rel="icon" href="images/cv-favicon.jpg" type="image/x-icon">
+   <?=Header::STYLE?>
    <?=GreetingCard::STYLE?>
    <?=DetailsCard::STYLE?>
    <title>Resume</title>
@@ -44,9 +45,7 @@ spl_autoload_register(function ($class) {
 <?=Footer::displayFooter()?>
 
 
-<?=Header::SCRIPTS['switcher']?>
-<?=Header::SCRIPTS['scrollToTop']?>
-<?=Header::SCRIPTS['burgerMenu']?>
+<?=Header::SCRIPT?>
 <?=Cards::SCRIPT?>
 <?=GreetingCard::SCRIPT?>
 <script> const cards = <?=json_encode(Cards::CARDS);?>; </script>

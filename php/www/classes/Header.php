@@ -9,9 +9,9 @@ class Header {
       // 'Contact'
    ];
 
-   const STYLES = [
-      'header' =>
-         <<<HTML
+
+   // @ ===========================   Style    ===========================
+   const STYLE = <<<HTML
 <style>
 /* ===================== */
 /* Header */
@@ -158,27 +158,20 @@ header nav.activeBurger {
       font-size: .85em;
    }
 }
-
-
 </style>
-HTML,
-   ];
+HTML;
 
-const SCRIPTS = [
-   'switcher' =>
-      <<<HTML
+
+   // @ ===========================   Script    ===========================
+   const SCRIPT = <<<HTML
 <script>
+   // TODO Darkmode switcher
    // document.addEventListener('DOMContentLoaded', function() {
    //    document.querySelector('#switcher').addEventListener('click', function() {
    //       document.body.classList.toggle('dark-mode');
    //    })
    // });
-</script>
-HTML,
-
-   'scrollToTop' =>
-      <<<HTML
-<script>
+   // TODO smooth scrolling to header
    // document.addEventListener('DOMContentLoaded', function () {
    //    document.querySelector('nav[data-header-link-name="Home"]').addEventListener('click', function() {
    //       window.scrollTo({
@@ -187,40 +180,27 @@ HTML,
    //       });
    //    });
    // });
-</script>
-HTML,
+   const
+      menuToggle = document.querySelector('.menu-toggle'),
+      nav        = document.querySelector('header nav');
 
-   'burgerMenu' =>
-      <<<HTML
-<script>
-   document.addEventListener('DOMContentLoaded', function () {
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('header nav');
-      console.log('click', nav)
-
-      menuToggle.addEventListener('click', function () {
-         console.log('click', nav)
-         nav.classList.toggle('activeBurger');
-      });
+   menuToggle.addEventListener('click', function () {
+      nav.classList.toggle('activeBurger');
    });
 </script>
-HTML,
-];
+HTML;
 
+
+   // @ ===========================   HTML Structure    ===========================
    static function displayHeader () : void { ?>
-   <?=self::STYLES['header']?>
 <header>
    <div>
       Richard Eldridge
-      <span>
-         Software Developer
-      </span>
+      <span>Software Developer</span>
    </div>
    <?=self::displayNavLinks()?>
-   <!-- <div id="switcher"> -->
-      <div></div>
-
-    <div class="menu-toggle burger" id="burger">&#9776;</div>
+   <div></div><!-- <div id="switcher"> -->
+   <div class="menu-toggle burger" id="burger">&#9776;</div>
 </header>
 <?php
    }
