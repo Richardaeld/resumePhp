@@ -87,7 +87,6 @@ class Cards {
          'description'     => 'A project for quick references for D&D 5e',
          'descriptionLong' => 'This PERN project is JavaScript-powered and exists as two separate deployments. The back-end deployment is a RESTful API, and the front-end deployment is a user-facing React.js app. This application is for any Dungeons and Dragons (D&D) 5e fans and can be utilized as a quick way to look up spells, roll digital dice, or view other frequently used table content. As a bonus, the RESTful API allows admins to easily create new tables and expand upon existing content.',
          'stack'           => ['PostgreSQL', 'Knex.js', 'React', 'Express', 'Node', 'JavaScript', 'Bootstrap', 'HTML/CSS'],
-         // 'stack'           => ['Docker', 'PostgreSQL', 'Knex.js', 'React', 'Express', 'Node', 'JavaScript', 'Bootstrap', 'HTML/CSS'],
          'repo'            => ['https://github.com/Richardaeld/dm_tool_api', 'https://github.com/Richardaeld/DND_Into_The_Abyss'],
          'app'             => '',
          'awards'          => '',
@@ -102,7 +101,6 @@ class Cards {
          'description'     => 'A recipe app that allows users to create, edit, and share recipes.',
          'descriptionLong' => ' The Fat Raccoon was designed to facilitate a home cooking community for the accumulation and sharing of family recipes. This application allows its users to create an account, which will track your previously viewed recipes, favorites, and uploaded recipes. It also allows for multiple ways to search for recipes and when you\'ve selected a recipe you want to cook it provides a cross-out function for the steps and ingredients you\'ve completed and used. This application leverages the flexibility of MongoDB\'s NoSQL database and Flask\'s minimal framework to allow for a truly custom and unique application. ',
          'stack'           => ['Python', 'Flask', 'MongoDB', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'Github'],
-         // 'stack'           => ['Docker', 'Python', 'Flask', 'MongoDB', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'Github'],
          'repo'            => ['https://github.com/Richardaeld/Fat_Racoon_Kitchen'],
          'app'             => '',
          'awards'          => 'This project received a Merit for going above and beyond class requirements.',
@@ -117,7 +115,6 @@ class Cards {
          'description'     => 'An ecommerce bookstore app that allows inventory management and secure checkout.',
          'descriptionLong' => ' Eldridge Music Book Emporium is an e-commerce bookstore application that is Django-powered and hosts several interactive functions that are modeled after modern e-commerce sites, such as: notifying users whenever a change has been made to their cart, retaining a purchase history, remembering a user\'s delivery address, and allowing users to rate products. To create a safe and secure checkout method, this application incorporates Stripe\'s API. ',
          'stack'           => ['Python', 'Django', 'PostgreSQL', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'AWS', 'Stripe'],
-         // 'stack'           => ['Docker', 'Python', 'Django', 'PostgreSQL', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'AWS', 'Stripe'],
          'repo'            => ['https://github.com/Richardaeld/Eldridge_Music'],
          'app'             => '',
          'awards'          => 'This project received a Merit for going above and beyond class requirements.',
@@ -143,7 +140,7 @@ class Cards {
       foreach ($cards as $name => $values) { ?>
 <div class="greeting-card-container">
    <div class="greeting-card" data-greeting-card-name="<?=$name?>">
-      <!-- 1st -->
+      <!-- 1st layer book cover-->
       <div>
          <div>
             <div>
@@ -157,10 +154,10 @@ class Cards {
          <div><p><?=$name?></p></div>
       </div>
 
-      <!-- 2nd -->
+      <!-- 2nd layer book back cover (image) -->
       <div><img data-greeting-card-img="<?=$name?>" src="<?=$values['image']?>" alt="<?=$values['imageAltText']?>"></div>
 
-      <!-- 3rd -->
+      <!-- 3rd layer project info and stack-->
       <div>
          <div>
             <p>
@@ -170,7 +167,7 @@ class Cards {
          </div>
       </div>
    </div>
-
+   <!-- Links -->
    <div>
       <?php if (!empty($values['repo'])) { foreach ($values['repo'] as $link) {?><a class="fancy-link" target="_blank" href="<?=$link?>">Repo</a><?php          }} ?>
       <?php if (!empty($values['app']))                                       {?><a class="fancy-link" target="_blank" href="<?=$values['app']?>">App</a><?php   } ?>
@@ -187,19 +184,24 @@ class Cards {
    <div id="detailsCardContainer" class="details-card-container">
       <div id="detailsCard" class="details-card">
          <div>
+            <!-- Project name -->
             <h3 class="header-text">name</h3>
             <div>
+               <!-- Project image -->
                <img src="" alt="">
                <div>
                   <div></div>
                   <div>
+                     <!-- Projet genreal ingo -->
                      <p>
                         <span></span>
                      </p>
+                     <!-- Project Awards -->
                      <p>
                         <b>Awards</b><br />
                         <span></span>
                      </p>
+                     <!-- Project Stack -->
                      <p>
                         <b>Stack</b><br/>
                         <span></span>
@@ -210,7 +212,7 @@ class Cards {
          </div>
       </div>
       <div>
-         <!-- project buttons -->
+         <!-- Project link buttons -->
          <?php foreach ($cards as $name => $values) {?>
             <div data-card-name="<?=$name?>" onclick="scrollToDetailsCardTop()"><?=$name?></div>
          <?php } ?>
@@ -227,53 +229,29 @@ class Cards {
    // @ =============
    // @ Navigate to top of detailscard
    function scrollToDetailsCardTop () {
-      const maxWidth = 1280;
-      const windowWidth = window.innerWidth;
-      // if (windowWidth > maxWidth) return;
+      const
+         maxWidth    = 1280,
+         windowWidth = window.innerWidth;
 
-      console.log('      1280px')
-      setTimeout(() => {
-         document.querySelector('#detailsCard').scrollIntoView({ behavior: 'smooth', block: 'start'});
-      }, 10);
-
+      setTimeout(() => { document.querySelector('#detailsCard').scrollIntoView({ behavior: 'smooth', block: 'start'}); }, 10);
       if (windowWidth > maxWidth) return;
-      
+
       setTimeout(() => {
-         const element = document.querySelector('#detailsCard');
-         const headerPixels = document.querySelector('header').clientHeight;
-         const rect = document.querySelector('#detailsCard').getBoundingClientRect();
-         // const offset = 10; 
-         const offset = document.querySelector('header').clientHeight;
-         // if (windowWidth <= 1280) {
-         //    emValue = 8; console.log('scrollIntoView', 1280)
-         // } else if (windowWidth <= 720) {
-         //    emValue = 4; console.log('scrollIntoView', 1280)
-         // } else if (windowWidth <= 480) {
-         //    emValue = 2; console.log('scrollIntoView', 480);
-         // }
-
-         // console.log('emValue', emValue)
-
-         // const fontSize   = parseFloat(getComputedStyle(document.documentElement).fontSize);
-         // const pixelValue = emValue * fontSize;
-         // window.scrollBy(0, -pixelValue);
-
+         const
+            element      = document.querySelector('#detailsCard'),
+            headerPixels = document.querySelector('header').clientHeight,
+            rect         = document.querySelector('#detailsCard').getBoundingClientRect(),
+            offset       = document.querySelector('header').clientHeight;
 
          if (rect.top > offset) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-        // Adjust scroll position after the animation
-        setTimeout(() => {
+            // @ Adjust scroll position after the animation <?php // @ Rework if time provides to give a better smoother exp ?>
+            setTimeout(() => { window.scrollBy(0, -offset); }, 300); // Adjust timeout based on the duration of the scroll animation
+         } else {
+            // If it's already near the top, just scroll a little
             window.scrollBy(0, -offset);
-        }, 300); // Adjust timeout based on the duration of the scroll animation
-    } else {
-        // If it's already near the top, just scroll a little
-        window.scrollBy(0, -offset);
-    }
-         // window.scrollBy(0, -headerPixels);
-
-         console.log('pixelValue', pixelValue)
-
+         }
       }, 500);
    }
 
