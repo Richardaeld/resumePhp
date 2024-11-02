@@ -27,9 +27,8 @@ class Footer {
    ];
 
 
-   const STYLES = [
-      'footer' =>
-         <<<HTML
+   // @ ===========================   Style    ===========================
+   const STYLE = <<<HTML
 <style>
 /* ===================== */
 /* Footer */
@@ -58,12 +57,12 @@ footer div a i {
    font-size: 2.5rem;
 }
 </style>
-HTML,
-   ];
+HTML;
 
+
+   // @ ===========================   HTML Structure    ===========================
    static function DisplayFooter () { ?>
 <footer>
-   <?=self::STYLES['footer']?>
    <?=self::DisplayLinks()?>
    <?=self::DisplayAuthorSignature()?>
 </footer><?php

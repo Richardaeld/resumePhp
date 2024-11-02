@@ -20,6 +20,7 @@ spl_autoload_register(function ($class) {
    <?=Header::STYLE?>
    <?=GreetingCard::STYLE?>
    <?=DetailsCard::STYLE?>
+   <?=Footer::STYLE?>
    <title>Resume</title>
 </head>
 
