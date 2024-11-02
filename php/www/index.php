@@ -17,13 +17,13 @@ spl_autoload_register(function ($class) {
    <link rel="stylesheet" href="css/default.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <link rel="icon" href="images/cv-favicon.jpg" type="image/x-icon">
-   <?=Header::STYLE?>
    <?=GreetingCard::STYLE?>
    <?=DetailsCard::STYLE?>
+   <?=Header::STYLE?>
    <?=Footer::STYLE?>
    <title>Resume</title>
 </head>
-
+<div id="top"></div>
 <?=Header::displayHeader()?>
 <body class="dark-mode">
    <!-- modal -->

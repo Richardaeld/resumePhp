@@ -138,6 +138,12 @@ class Cards {
    // @ =============
    // @ General Helper functions
    // @ =============
+   // @ Scroll to top of page
+   function scrollToTop () {
+      setTimeout(() => { document.querySelector('#top').scrollIntoView({ behavior: 'smooth', block: 'start'}); }, 10);
+      setTimeout(() => { window.scrollBy({top: -300, behavior: 'smooth'}); }, 700)
+   }
+
    // @ Navigate to top of detailscard
    function scrollToDetailsCardTop () {
       const
@@ -158,7 +164,7 @@ class Cards {
 
          // @ Adjust scroll position after the animation
          (rect.top > offset)
-            ? setTimeout(() => { window.scrollBy(0, -offset); }, 300)
+            ? setTimeout(() => { window.scrollBy({top: -offset, behavior: 'smooth'}); }, 300)
             : window.scrollBy(0, -offset); // @ If it's already near the top, just scroll a little
       }, 500);
    }

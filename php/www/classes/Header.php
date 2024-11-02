@@ -1,9 +1,19 @@
 <?php
 class Header {
    const NAV_LINKS = [
-      'Home'            => '#',
-      'Project Details' => '#detailsCardContainer',
-      'Resume'          => 'images/richard_eldridge_resume.pdf',
+      'Home'            => [
+         'link'    => '',
+         'onclick' => 'scrollToTop()'
+      ],
+      'Project Details' => [
+         'link'    => '',
+         'onclick' => 'scrollToDetailsCardTop()'
+      ],
+      'Resume'          => [
+         'link'    => 'href="images/richard_eldridge_resume.pdf"',
+         'onclick' => '',
+      ],
+      // 'Project Details' => '#detailsCardContainer',
       // 'About',
       // 'Services',
       // 'Contact'
@@ -209,8 +219,8 @@ HTML;
    static function DisplayNavLinks () :void { ?>
 <nav>
    <ul>
-      <?php foreach (self::NAV_LINKS as $name => $link) { ?>
-         <li><a href='<?=$link?>' data-header-link-name="<?=$name?>"><?=$name?></a></li>
+      <?php foreach (self::NAV_LINKS as $name => $linkInfo) { ?>
+         <li><a <?=$linkInfo['link']?> onclick="<?=$linkInfo['onclick']?>" data-header-link-name="<?=$name?>"><?=$name?></a></li>
       <?php } ?>
    </ul>
 </nav>
