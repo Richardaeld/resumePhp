@@ -4,33 +4,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Prism&family=Tilt+Warp&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 :root {
-   /* --dark-background: #fff; */
-   /* --dark-background: #030f18;
-   --dark-primary:#001f3f;
-   --dark-secondary:#43b7ff;
-   --dark-tertiary:#1a1a1a;
-   --dark-color-dark-background:#fafbfc; */
-   /* --dark-primary: rgb(0, 31, 63);
-   --dark-secondary: rgb(67, 183, 255);
-   --dark-tertiary: rgb(26, 26, 26); */
-
-
    --background: rgb(244, 255, 255);
-   /* --dark-background: rgb(255,255,255); */
    --color-light-background: rgb(250, 251, 252);
    --color-dark-background: rgb(14, 45, 77);
 
-   /* --dark-headerBoxShadow: rgba(255,255,255,.75) */
-
-
    --primary: #866dcc;
-   /* --dark-primary: rgba(92, 75, 138, 1); */
-
    --secondary: #8A5C4B;
-   /* --dark-secondary: rgba(138, 92, 75, 1); */
-
    --tertiary: #4B8A5C;
-   /* --dark-tertiary: rgba(75, 138, 92, 1) */
 
    --card-background-color-foreground: rgba(250, 251, 252, .75);
    --card-background-color:
@@ -53,14 +33,7 @@ body {
    margin: 10em 0 0 0;
    background-color: var(--background);
    color: var(--color-dark-background);
-   /* font-family: "ubuntu mono", sans-serif; */
-
-   /* font-family: "Anton SC"; */
-   font-family: "Montserrat";
-   /* font-family: "Roboto -- header"; */
-   /* font-family: "Tilt Prism"; */
-   /* font-family: "Ubuntu Mono"; */
-
+   font-family: "Montserrat";    /* "ubuntu mono", "Anton SC", "Roboto", "Tilt Prism" */
 }
 
 /* ===================== */
@@ -120,19 +93,14 @@ body {
 /* ===================== */
 /* Body */
 /* ===================== */
-.header-text {
-   /* text-shadow: */
-      /* -1px -1px 1px var(--tertiary),
-       1px  1px 0px var(--secondary),
-       1px  1px 1px rgba(0, 0, 0, .75)!important; */
-       /* 3px  3px     rgba(0, 0, 0, 0.452)!important; */
-}
 
 
 /* ===================== */
 /* Cards */
 /* ===================== */
 /* classes/Cards.php */
+/* classes/GreetingCard.php */
+/* classes/DetailsCard.php */
 
 /* ===================== */
 /* Project icons */
