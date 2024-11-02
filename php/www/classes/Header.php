@@ -7,7 +7,6 @@ class Header {
       // 'About',
       // 'Services',
       // 'Contact'
-      // 'Resume',
    ];
 
    const STYLES = [
@@ -22,12 +21,10 @@ header,
 header a {
    color: var(--color-dark-background);
 }
-
 header,
 header > * {
    display: flex;
 }
-
 header {
    position: fixed;
    top:0;
@@ -36,9 +33,7 @@ header {
    background-color: var(--primary);
    padding: 1.25em;
    text-align: center;
-   font-family: "tilt warp", sans-serif;
-   /* font-family: "montserrat", sans-serif; */
-   /* font-family: "ubuntu mono", sans-serif; */
+   font-family: "tilt warp", sans-serif; /* "montserrat","ubuntu mono" */
    flex-direction: row;
    justify-content: space-around;
 }
@@ -51,12 +46,13 @@ header div:first-child {
 }
 header nav {
    width: 60%;
+   justify-content: center;
 }
 header div:last-child {
    justify-content: end;
 }
 
-
+/* nav menu display and links */
 header nav ul li  {
    list-style: none;
 }
@@ -69,7 +65,6 @@ header nav ul {
    flex-direction: row;
 }
 
-
 /* Logo config */
 /* Name */
 header div:first-child {
@@ -77,20 +72,16 @@ header div:first-child {
    display: flex;
    flex-direction: column;
    font-size: 1.5em;
-   /* font-family: "montserrat", sans-serif; */
-   font-family: "Varela Round";
+   font-family: "Varela Round"; /* "montserrat", */
    font-weight: 600;
 
 }
 /* Job Description */
 header div:first-child span {
-   font-family: "Roboto";
+   font-family: "Roboto"; /* "ubuntu mono", "tilt warp" */
    font-weight: 400;
-   /* font-family: "ubuntu mono", sans-serif; */
-   /* font-family: "tilt warp", sans-serif; */
    font-size: 1em;
 }
-
 
 /* Nav config */
 header nav ul {
@@ -103,10 +94,7 @@ header nav ul {
    margin-bottom:.5em;
 }
 
-header nav {
-   justify-content: center;
 
-}
 
 /* Burger nav responsiveness */
 .burger {
@@ -114,8 +102,6 @@ header nav {
    cursor: pointer;
    font-size: 2em;
 }
-
-
 
 header nav.activeBurger {
    right:0px;
@@ -235,7 +221,6 @@ HTML,
       <div></div>
 
     <div class="menu-toggle burger" id="burger">&#9776;</div>
-      <!-- <button class="menu-toggle" aria-label="Toggle menu">☰</button> -->
 </header>
 <?php
    }
