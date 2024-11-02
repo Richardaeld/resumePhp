@@ -38,26 +38,19 @@ footer {
    background-color: var(--primary);
    padding: 1.25em;
    text-align: center;
-   font-family: "ubuntu mono", sans-serif;
-   /* font-family: "Roboto", sans-serif; */
+   font-family: "ubuntu mono", sans-serif; /* "Roboto" */
    color: var(--color-dark-background);
    display: flex;
    flex-direction: column;
    justify-content: center;
 }
 footer div:first-child {
-   /* width: 100%; */
    padding-right: 35%;
    padding-left: 35%;
    display: flex;
    justify-content:space-evenly;
-
-}
-footer div p {
-   /* font-family: "Anton SC"; */
 }
 footer div a {
-   /* color: var(--color-dark-background); */
    text-decoration: none;
 }
 footer div a i {
@@ -76,6 +69,7 @@ HTML,
 </footer><?php
    }
 
+   // @ Displays author lings of github, linkedin, and email
    static function DisplayLinks () { ?>
 <div>
    <?php foreach (self::AUTHOR_LINKS as $linkName => $link) { ?>
@@ -91,7 +85,7 @@ HTML,
 
    static function displayAuthorSignature () : void { ?>
 <div>
-   <p>&#169; 2024 Richard Eldridge. <span>All rights reserved.</span></p>
+   <p>&#169; <?=date('Y')?> Richard Eldridge. <span>All rights reserved.</span></p>
 </div><?php
    }
 
