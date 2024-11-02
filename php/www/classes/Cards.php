@@ -233,9 +233,11 @@ class Cards {
          maxWidth    = 1280,
          windowWidth = window.innerWidth;
 
+      //  @ initial position adjustment
       setTimeout(() => { document.querySelector('#detailsCard').scrollIntoView({ behavior: 'smooth', block: 'start'}); }, 10);
       if (windowWidth > maxWidth) return;
 
+      // @ Additioanl incremental scroll <?php // ! TODO Rework if time provides to give a better smoother exp ?>
       setTimeout(() => {
          const
             element      = document.querySelector('#detailsCard'),
@@ -243,17 +245,13 @@ class Cards {
             rect         = document.querySelector('#detailsCard').getBoundingClientRect(),
             offset       = document.querySelector('header').clientHeight;
 
-         if (rect.top > offset) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-            // @ Adjust scroll position after the animation <?php // @ Rework if time provides to give a better smoother exp ?>
-            setTimeout(() => { window.scrollBy(0, -offset); }, 300); // Adjust timeout based on the duration of the scroll animation
-         } else {
-            // If it's already near the top, just scroll a little
-            window.scrollBy(0, -offset);
-         }
+         // @ Adjust scroll position after the animation
+         (rect.top > offset)
+            ? setTimeout(() => { window.scrollBy(0, -offset); }, 300)
+            : window.scrollBy(0, -offset); // @ If it's already near the top, just scroll a little
       }, 500);
    }
+
 
    // @ Create common elements easily and add attributes
    function createEl (typeElement, attributes = null) {
@@ -269,6 +267,7 @@ class Cards {
    }
 
 
+   // @ Reveals modal with image
    function updateModal (imageSelector) {
       const
          modal       = document.querySelector("#modalContainer"),
@@ -311,68 +310,34 @@ class Cards {
       event.target.closest('.greeting-card').classList.remove('open');
       event.target.closest('.greeting-card-container').classList.remove('open');
    }
-
+// ! TODO Adjust to be view dependant
    // @ Open one card every second
-   // greetingCards.forEach((card, index) => {
    document.querySelectorAll('.greeting-card-container:nth-child(-n+3)').forEach((card, index) => {
       setTimeout(() => {
-         // card.classList.add('open')
          card.closest('.greeting-card-container').classList.add('open');
          card.querySelector('.greeting-card').classList.add('open')
       }, 1000 * (index+1));
    });
    // @ Open cards as they come into view
    document.addEventListener("DOMContentLoaded", function () {
-   //  const container = document.querySelector('.cards-container div.cards:first-child .greeting-card-container');
-
-   //  const options = {
-   //      root: null, // use the viewport as the container
-   //      rootMargin: '0px',
-   //      threshold: 0.3 // Trigger when 10% of the container is in view
-   //  };
-
-   //  const observer = new IntersectionObserver((entries) => {
-   //     entries.forEach(entry => {
-   //         console.log('entries', entry)
-   //          if (entry.isIntersecting) {
-   //              entry.target.classList.add('open');
-   //              entry.target.querySelector('.greeting-card').classList.add('open');
-   //          } else {
-   //              entry.target.classList.remove('open');
-   //              entry.target.querySelector('.greeting-card').classList.remove('open');
-   //          }
-   //      });
-   //  }, options);
-
     greetingCards.forEach(card => {
-      // observer.observe(card) 
       const handleScroll = () => {
-        const rect = card.getBoundingClientRect();
+         const rect = card.getBoundingClientRect();
 
-         // console.log('card', card)
-
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+         if (rect.top < window.innerHeight && rect.bottom >= 0) {
             setTimeout(() => {
                card.classList.add('open');
                card.closest('.greeting-card').classList.add('open');
             }, 500);
-        } else {
+         } else {
             setTimeout(() => {
                card.classList.remove('open');
                card.closest('.greeting-card').classList.remove('open');
             }, 500);
-        }
+         }
     };
-
     window.addEventListener('scroll', handleScroll);
-   
    });
-   //  observer.observe(container);
-
-   // Fallback using scroll event
-   
-
-
 });
 
    // @ =============
@@ -404,16 +369,13 @@ class Cards {
    function updateName        (card) {
       target.querySelector('h3').textContent            = card;
    }
-
    function updateDescription (card) {
       target.querySelector('p:first-child').textContent = cards[card]['descriptionLong'];
    }
-
    function updateImage       (card) {
       target.querySelector('div img').src               = cards[card]['image'];
       target.querySelector('div img').alt               = cards[card]['imageAltText'];
    }
-
    function updateAwards      (card) {
       const funcTarget = target.querySelector('p:nth-child(2)');
       funcTarget.style.display = (cards[card]['awards'] == '') ? 'none' : 'block' ;
@@ -423,7 +385,6 @@ class Cards {
          .appendChild(createEl('ul'))
          .appendChild(createEl('li', { textContent: cards[card]['awards'] }));
    }
-
    function updateStack       (card) {
       const ul = createEl('ul');
       cards[card]['stack'].forEach(stack => {
@@ -433,7 +394,6 @@ class Cards {
       target.querySelector('p:last-child span').innerHTML = '';
       target.querySelector('p:last-child span').appendChild(ul);
    }
-
    function updateLinks (card) {
       const linkTarget = document.querySelector('.details-card-links');
       linkTarget.innerHTML = '';
@@ -501,6 +461,11 @@ class Cards {
    // @ =============
    // @ Main Functions
    // @ =============
+   // @ Apply transition to details card in order of:
+   // @     Remove existing selected
+   // @     Wait for inital transition to finish (clearing transition) and then
+   // @     Update project information while all text and image are not visible to user
+   // @     Finally apply last transition to reveal new information
    function applyTransitionToDetailsCard (button) {
       removeSelected(button);
 
