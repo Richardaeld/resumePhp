@@ -19,8 +19,12 @@ spl_autoload_register(function ($class) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <link rel="icon" href="images/cv-favicon.jpg" type="image/x-icon">
 
+
+
    <!-- <script src="https://kit.fontawesome.com/377083d8a9.js" crossorigin="anonymous"></script> -->
    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
+   <?=GreetingCard::STYLE?>
+   <?=DetailsCard::STYLE?>
    <title>Resume</title>
 </head>
 
@@ -37,11 +41,13 @@ spl_autoload_register(function ($class) {
 
    <div class="cards-container">
       <div class="cards">
-         <?=Cards::greetingCards(Cards::GREETING_CARDS)?>
+         <?=GreetingCard::greetingCards(Cards::GREETING_CARDS)?>
+         <!-- <=Cards::greetingCards(Cards::GREETING_CARDS)?> -->
       </div>
 
       <div class="cards">
-         <?=Cards::detailsCard(Cards::GREETING_CARDS)?>
+         <?=GreetingCard::detailsCard(Cards::GREETING_CARDS)?>
+         <!-- <=Cards::detailsCard(Cards::GREETING_CARDS)?> -->
       </div>
    </div>
 
@@ -53,10 +59,9 @@ spl_autoload_register(function ($class) {
 <?=Header::SCRIPTS['switcher']?>
 <?=Header::SCRIPTS['scrollToTop']?>
 <?=Header::SCRIPTS['burgerMenu']?>
-<script>
-
-
-
-</script>
+<?=Cards::SCRIPT?>
+<?=GreetingCard::SCRIPT?>
+<script> const cards = <?=json_encode(Cards::GREETING_CARDS);?> </script>
+<?=DetailsCard::SCRIPT?>
 
 </html>
