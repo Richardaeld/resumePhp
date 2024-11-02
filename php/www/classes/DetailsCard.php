@@ -111,7 +111,7 @@ class DetailsCard {
    min-height: 5em;
    height: 10em;
    max-height: 15em;
-   z-index:200;
+   z-index:10;
    position: relative;
    margin: auto 1.5em;
 }

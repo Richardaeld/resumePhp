@@ -362,21 +362,20 @@ HTML;
       event.target.closest('.greeting-card').classList.remove('open');
       event.target.closest('.greeting-card-container').classList.remove('open');
    }
-// ! TODO Adjust to be view dependant
-   // @ Open one card every second
-   document.querySelectorAll('.greeting-card-container:nth-child(-n+3)').forEach((card, index) => {
-      setTimeout(() => {
-         card.closest('.greeting-card-container').classList.add('open');
-         card.querySelector('.greeting-card').classList.add('open')
-      }, 1000 * (index+1));
-   });
+   // @ Open one card every second <? // @ Replaced by window.scrollBy function ?>
+   // document.querySelectorAll('.greeting-card-container:nth-child(-n+3)').forEach((card, index) => {
+   //    setTimeout(() => {
+   //       card.closest('.greeting-card-container').classList.add('open');
+   //       card.querySelector('.greeting-card').classList.add('open')
+   //    }, 1000 * (index+1));
+   // });
    // @ Open cards as they come into view
-   document.addEventListener("DOMContentLoaded", function () {
-    greetingCards.forEach(card => {
+   const quarterViewHeight = window.innerHeight * 0.25;
+   greetingCards.forEach(card => {
       const handleScroll = () => {
          const rect = card.getBoundingClientRect();
 
-         if (rect.top < window.innerHeight && rect.bottom >= 0) {
+         if (rect.top < window.innerHeight-quarterViewHeight && rect.bottom-quarterViewHeight >= 0) {
             setTimeout(() => {
                card.classList.add('open');
                card.closest('.greeting-card').classList.add('open');
@@ -387,10 +386,11 @@ HTML;
                card.closest('.greeting-card').classList.remove('open');
             }, 500);
          }
-    };
-    window.addEventListener('scroll', handleScroll);
+      };
+   window.addEventListener('scroll', handleScroll);
    });
-});
+   // @ Open visible Greeting cards on page load
+   setTimeout(() => {window.scrollBy({ top: 1, behavior: 'smooth'}); }, 100);
 
    // @ =============
    // @ Event Handlers
@@ -401,7 +401,6 @@ HTML;
       // card.addEventListener('mouseout',  closeGreetingCard);
       card.addEventListener('click',     toggleGreetingCard);
       // @ Add event to opened greeting card layer 3
-      // card.querySelector('div:nth-child(1)').addEventListener('click', toggleGreetingCard);
       card.querySelector('div:nth-child(2) img').addEventListener('click', openGreetingCard);
    });
 
