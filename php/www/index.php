@@ -24,9 +24,7 @@ spl_autoload_register(function ($class) {
    <title>Resume</title>
 </head>
 
-<div ></div>
 <?=Header::displayHeader()?>
-
 <body class="dark-mode">
    <!-- modal -->
    <div id="modalContainer" class="modal">
@@ -42,14 +40,13 @@ spl_autoload_register(function ($class) {
    </div>
 
 </body>
-
 <?=Footer::displayFooter()?>
-
 
 <?=Header::SCRIPT?>
 <?=Cards::SCRIPT?>
 <?=GreetingCard::SCRIPT?>
-<script> const cards = <?=json_encode(Cards::CARDS);?>; </script>
+<? // Heredoc wont work with short echo tags so created script here for JS DB of cards ?>
+<script> const cards = <?=json_encode(Cards::CARDS);?>; </script> 
 <?=DetailsCard::SCRIPT?>
 
 </html>
