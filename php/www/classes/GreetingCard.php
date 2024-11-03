@@ -378,16 +378,16 @@ HTML;
          if (rect.top < window.innerHeight-quarterViewHeight && rect.bottom-quarterViewHeight >= 0) {
             setTimeout(() => {
                card.classList.add('open');
-               card.closest('.greeting-card').classList.add('open');
+               card.closest('.greeting-card-container').classList.add('open')
             }, 500);
          } else {
             setTimeout(() => {
                card.classList.remove('open');
-               card.closest('.greeting-card').classList.remove('open');
+               card.closest('.greeting-card-container').classList.remove('open')
             }, 500);
          }
       };
-   window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll);
    });
    // @ Open visible Greeting cards on page load
    setTimeout(() => {window.scrollBy({ top: 1, behavior: 'smooth'}); }, 100);
