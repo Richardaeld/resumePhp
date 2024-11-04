@@ -318,7 +318,7 @@ HTML;
       // @ App
       if (cards[card]['app'] !== '') {
          const span = createEl('span', { classList: 'fancy-link' });
-         const a = createEl('a', { 
+         const a = createEl('a', {
             href: cards[card]['app'],
             target: '_blank'
          });
