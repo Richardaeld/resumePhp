@@ -67,7 +67,7 @@ class Cards {
          'imageAltText'    => 'An image of the spinning wheelchair app.',
          'style'           => 'greetingCard',
          'description'     => '3rd place hack-a-thon project at code Institute\'s "Trust in SODA" 2021 event.',
-         'descriptionLong' => 'This JavaScript-powered hack-a-thon project achieved 3rd place in the "Trust in SODA" 2021 event in conjunction with Code Institute. This rudimentary project was designed to help determine if a hallway or doorway has adequate space to accommodate a wheelchair\'s wide turn radius.',
+         'descriptionLong' => 'This JavaScript-powered hack-a-thon project achieved 3rd place in the "Trust in SODA" 2021 event in conjunction with Code Institute. This project was designed to help determine whether a hallway or doorway has adequate space to accommodate a wheelchair\'s wide turn radius.',
          'stack'           => ['JavaScript', 'HTML/CSS', 'Bootstrap', 'Github'],
          'repo'            => ['https://github.com/Richardaeld/Hackathaon-trust-in-soda-team-2'],
          'app'             => 'https://richardaeld.github.io/Hackathaon-trust-in-soda-team-2/',
