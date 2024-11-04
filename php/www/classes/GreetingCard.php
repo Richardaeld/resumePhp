@@ -10,6 +10,9 @@ class GreetingCard {
    justify-content: space-evenly;
    margin: 3em;
 }
+.cards img {
+   cursor: pointer;
+}
 .greeting-card-container,
 .flat-card-container {
    width: calc(30%);
