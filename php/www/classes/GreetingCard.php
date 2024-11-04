@@ -139,6 +139,11 @@ class GreetingCard {
    border-radius: 3px;
 }
 
+.greeting-card,
+.greeting-card > div:nth-child(3) {
+   cursor: pointer;
+}
+
 .greeting-card > div:nth-child(1),
 .greeting-card > div:nth-child(2) {
    z-index: 3;
