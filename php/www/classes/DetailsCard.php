@@ -52,7 +52,7 @@ class DetailsCard {
    transition-duration: .75s;
 }
 .details-card-container > div:last-child > div:hover {
-   background-color: rgba(0, 0, 0, 0.2);
+   background-color: rgba(0, 0, 0, 0.8);
    color:var(--color-dark-background);
 }
 .details-card-container > div:last-child > div::before {
