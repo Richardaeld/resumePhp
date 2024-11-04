@@ -181,7 +181,7 @@ class GreetingCard {
    width: 100%;
    top: 0;
    left: 0;
-   transition: 1.25s;
+   transition: 1.75s;
    background: rgba(0, 0, 0, 0.15);
    filter: blur(8px)
 }
@@ -370,7 +370,7 @@ HTML;
    //    }, 1000 * (index+1));
    // });
    // @ Open cards as they come into view
-   const quarterViewHeight = window.innerHeight * 0.25;
+   const quarterViewHeight = window.innerHeight * 0.35;
    greetingCards.forEach(card => {
       const handleScroll = () => {
          const rect = card.getBoundingClientRect();
@@ -379,12 +379,12 @@ HTML;
             setTimeout(() => {
                card.classList.add('open');
                card.closest('.greeting-card-container').classList.add('open')
-            }, 500);
+            }, 750);
          } else {
             setTimeout(() => {
                card.classList.remove('open');
                card.closest('.greeting-card-container').classList.remove('open')
-            }, 500);
+            }, 250);
          }
       };
       window.addEventListener('scroll', handleScroll);
