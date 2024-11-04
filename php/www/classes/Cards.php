@@ -95,7 +95,7 @@ class Cards {
          'imageAltText'    => 'An image of the fat raccoon recipe site.',
          'style'           => 'greetingCard',
          'description'     => 'A recipe app that allows users to create, edit, and share recipes.',
-         'descriptionLong' => ' The Fat Raccoon was designed to facilitate a home cooking community for the accumulation and sharing of family recipes. This application allows its users to create an account, which will track your previously viewed recipes, favorites, and uploaded recipes. It also allows for multiple ways to search for recipes and when you\'ve selected a recipe you want to cook it provides a cross-out function for the steps and ingredients you\'ve completed and used. This application leverages the flexibility of MongoDB\'s NoSQL database and Flask\'s minimal framework to allow for a truly custom and unique application. ',
+         'descriptionLong' => 'The Fat Raccoon was designed as a home cooking community to accumulate and share family recipes. With this application, users can create an account to track previously viewed recipes, favorites, and uploaded recipes. This application features an advanced search function for selecting the perfect recipe. Additionally, when cooking, home chefs can use the built-in cross-out feature to keep track of what ingredients they used. This application leverages the flexibility of MongoDB\'s NoSQL database and Flask\'s minimal framework to allow for a truly custom and unique application.',
          'stack'           => ['Python', 'Flask', 'MongoDB', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'Github'],
          'repo'            => ['https://github.com/Richardaeld/Fat_Racoon_Kitchen'],
          'app'             => '',
