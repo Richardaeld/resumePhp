@@ -68,6 +68,7 @@ header nav ul li  {
 }
 header nav ul li a {
    text-decoration: none;
+   cursor: pointer;
 }
 header nav,
 header nav ul {
