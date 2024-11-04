@@ -57,7 +57,7 @@ class Cards {
          'stack'           => ['JavaScript', 'HTML/CSS', 'Bootstrap', 'JSON'],
          'repo'            => ['https://github.com/alissatroiano/8-your-heart-out'],
          'app'             => 'https://alissatroiano.github.io/8-your-heart-out/',
-         'awards'          => "1st place in Code Institute's, \"Love is in the Air\" hack-a-thon. ",
+         'awards'          => "1st place in Code Institute's \"Love is in the Air\" hack-a-thon. ",
       ],
       'Spinning Wheelchairs' => [
          'logo'            => 'fa-solid fa-wheelchair',
@@ -71,7 +71,7 @@ class Cards {
          'stack'           => ['JavaScript', 'HTML/CSS', 'Bootstrap', 'Github'],
          'repo'            => ['https://github.com/Richardaeld/Hackathaon-trust-in-soda-team-2'],
          'app'             => 'https://richardaeld.github.io/Hackathaon-trust-in-soda-team-2/',
-         'awards'          => "3rd place in Code Institute's, \"Trust in SODA 2021\" hack-a-thon.",
+         'awards'          => "3rd place in Code Institute's \"Trust in SODA 2021\" hack-a-thon.",
       ],
       'DM Tool' => [
          'logo'            => 'fa-brands fa-d-and-d',
