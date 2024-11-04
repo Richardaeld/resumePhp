@@ -21,7 +21,7 @@ spl_autoload_register(function ($class) {
    <?=DetailsCard::STYLE?>
    <?=Header::STYLE?>
    <?=Footer::STYLE?>
-   <title>Resume</title>
+   <title>Richard Eldridge's Resume</title>
 </head>
 <div id="top"></div>
 <?=Header::displayHeader()?>

@@ -9,7 +9,7 @@ class Header {
          'link'    => '',
          'onclick' => 'scrollToDetailsCardTop()'
       ],
-      'Richard Eldridge\'s Resume'          => [
+      'Resume'          => [
          'link'    => 'href="images/richard_eldridge_resume.pdf"',
          'onclick' => '',
       ],
