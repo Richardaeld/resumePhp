@@ -123,7 +123,7 @@ class Cards {
          'imageAltText'    => 'An image of a Romancing the Cards game.',
          'style'           => 'greetingCard',
          'description'     => 'A memory matching game with multiple languages and themes.',
-         'descriptionLong' => 'The purpose of this, JavaScript-powered, game is to illustrate how a simple matching game can entertain and help with learning words in a different language. This game boasts 17 different words in 6 languages, 3 different game settings, and 1 cosmetic setting to help encourage returning users. Words for each game are selected at random so each playthrough has non-linear gameplay.',
+         'descriptionLong' => 'The purpose of this JavaScript-powered game is to illustrate how a simple matching game can entertain and help with learning words in a different language. This game boasts 17 different words in 6 languages, 3 different game settings, and 1 cosmetic setting to help encourage returning users. Words for each game are selected at random so each playthrough is unique.',
          'stack'           => ['JavaScript', 'HTML/CSS', 'Bootstrap', 'Github'],
          'repo'            => ['https://github.com/Richardaeld/google_translate_game'],
          'app'             => 'https://richardaeld.github.io/google_translate_game/',
